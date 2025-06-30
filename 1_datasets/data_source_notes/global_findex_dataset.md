@@ -60,7 +60,8 @@
 
 - **Definitions:** See `Series table` sheet  
 - **Methodology PDF:**  
-  [Global Findex 2021 Methodology](https://globalfindex.worldbank.org/sites/globalfindex/files/2022-06/Global%20Findex%20Database%202021%20Methodology.pdf)
+  [Global Findex 2021 Methodology]  
+  (<https://globalfindex.worldbank.org/sites/globalfindex/files/2022-06/Global%20Findex%20Database%202021%20Methodology.pdf>)
 
 ## Research Questions
 
@@ -70,6 +71,7 @@
 
 ## Summary
 
-A critical dataset for understanding financial behavior and inclusion globally.  
-Provides a solid foundation for comparing traditional and emerging  
-(crypto) financial tools in underbanked and crisis-affected countries.
+A critical dataset for understanding financial behavior and inclusion  
+globally. Provides a solid foundation for comparing traditional and  
+emerging (crypto) financial tools in underbanked and crisis-affected  
+countries.
