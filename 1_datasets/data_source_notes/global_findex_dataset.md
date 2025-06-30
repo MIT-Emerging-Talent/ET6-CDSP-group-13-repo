@@ -4,7 +4,8 @@
 
 - **Organization:** The World Bank  
 - **URL:**  
-  [World Bank – Global Findex](https://www.worldbank.org/en/publication/globalfindex/Data)  
+  [World Bank – Global Findex]  
+  (<https://www.worldbank.org/en/publication/globalfindex/Data>)  
 - **File:** `DatabankWide.raw.xlsx`  
 - **Years:** 2011, 2014, 2017, 2021  
 - **Format:** Excel (`.xlsx`)
