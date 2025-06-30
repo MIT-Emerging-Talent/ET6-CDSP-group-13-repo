@@ -4,7 +4,8 @@
 
 - **Organization:** The World Bank  
 - **URL:**  
-  [https://www.worldbank.org/en/publication/globalfindex/Data](https://www.worldbank.org/en/publication/globalfindex/Data)  
+  [https://www.worldbank.org/en/publication/  
+  globalfindex/Data](https://www.worldbank.org/en/publication/globalfindex/Data)  
 - **File:** `DatabankWide.raw.xlsx`  
 - **Years:** 2011, 2014, 2017, 2021  
 - **Format:** Excel (`.xlsx`)
@@ -44,18 +45,24 @@
 
 ## Key Indicators (examples)
 
-| Indicator                                   | Description                                          |
-|--------------------------------------------|------------------------------------------------------|
-| Account (% age 15+)                        | % of adults with any financial account              |
-| Mobile money account (% age 15+)           | % with a registered mobile money account            |
-| Saved at financial institution (% age 15+) | % saving at formal institutions                     |
-| Used internet/mobile to access account     | % accessing accounts via digital means              |
+- **Account (% age 15+):**  
+  % of adults with any financial account
+
+- **Mobile money account (% age 15+):**  
+  % with a registered mobile money account
+
+- **Saved at financial institution (% age 15+):**  
+  % saving at formal institutions
+
+- **Used internet/mobile to access account:**  
+  % accessing accounts via digital means
 
 ## Documentation
 
 - **Definitions:** See `Series table` sheet  
 - **Methodology PDF:**  
-  [Global Findex 2021 Methodology](https://globalfindex.worldbank.org/sites/globalfindex/files/2022-06/Global%20Findex%20Database%202021%20Methodology.pdf)
+  [Global Findex 2021 Methodology]  
+  (<https://globalfindex.worldbank.org/sites/globalfindex/files/2022-06/Global%20Findex%20Database%202021%20Methodology.pdf>)
 
 ## Research Questions
 
