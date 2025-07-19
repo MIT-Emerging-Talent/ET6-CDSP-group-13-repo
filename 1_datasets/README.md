@@ -77,14 +77,27 @@ Team members should **add their dataset summaries here** as they contribute.
 
 ---
 
-### 4. [Placeholder for Contributor]
+---
 
-- **Description:** Add a short description of your dataset.
-- **Source:** Where you got it from.
+### 4. CEX Stablecoin OHLCV Volume Panel (Ahmed)
+
+- **Description:** Daily OHLCV data for all USDT/USDC quote pairs across Binance,
+Coinbase, Kraken, OKX, and Bybit from 2019–2024. Used to calculate total daily
+ stablecoin volume on CEXs.
+- **Source:** Binance, Coinbase, Kraken, OKX, Bybit — pulled via CCXT and
+official APIs.
 - **Data Source Notes:**  
-  Link to your Markdown documentation.
-- **Raw Dataset:**  
-  Link to your data file.
+  [cex_volume_data_notes.md](./data_source_notes/cex_volume_data_notes.md)
+- **Raw Datasets:**  
+  - [binance_ohlcv_usdt_daily_2019-24.csv](./raw_datasets/binance_ohlcv_usdt_daily_2019-24.csv)  
+  - [binance_ohlcv_usdc_daily_2019-24.csv](./raw_datasets/binance_ohlcv_usdc_daily_2019-24.csv)  
+  - [bybit_ohlcv_usdt_daily_2019-24.csv](./raw_datasets/bybit_ohlcv_usdt_daily_2019-24.csv)  
+  - [bybit_ohlcv_usdc_daily_2019-24.csv](./raw_datasets/bybit_ohlcv_usdc_daily_2019-24.csv)  
+  - [coinbase_ohlcv_usdc_daily_2019-24.csv](./raw_datasets/coinbase_ohlcv_usdc_daily_2019-24.csv)  
+  - [kraken_ohlcv_usdt_daily_2019-24.csv](./raw_datasets/kraken_ohlcv_usdt_daily_2019-24.csv)  
+  - [kraken_ohlcv_usdc_daily_2019-24.csv](./raw_datasets/kraken_ohlcv_usdc_daily_2019-24.csv)  
+  - [okx_ohlcv_usdt_daily_2021-24.csv](./raw_datasets/okx_ohlcv_usdt_daily_2021-24.csv)  
+  - [okx_ohlcv_usdc_daily_2021-24.csv](./raw_datasets/okx_ohlcv_usdc_daily_2021-24.csv)
 
 ---
 
