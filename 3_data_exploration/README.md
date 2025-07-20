@@ -12,13 +12,24 @@ Notebooks or scripts here should:
 2. Generate plots or summaries that help check data completeness or structure
 3. Save visuals (if needed) to `figures/` or note findings in `guide.md`
 
-## Example Explorations
+## USDT Volume Exploration Guide
 
-### Stablecoin Volume Inspection (Ahmed)
+This folder contains early exploratory charts to help understand USDT trading
+volume across centralized exchanges (CEXs) between 2019 and 2024.
 
-- **Goal:** Check if daily CEX volume shows clear periods of drop/growth
-- **Output:** 7-day smoothed volume chart, exchange-level comparison
-- **Tools:** Python (pandas, matplotlib)
+## Included Figures
+
+- `usdt_volume_all_exchanges.png`: Total daily USDT volume summed across all exchanges.
+- `usdt_volume_binance_only.png`: Daily USDT volume on Binance only.
+- `usdt_volume_binance_annotated.png`: Binance volume annotated with key access
+dates for:
+  - Nigeria (2019-01-01)
+  - Sudan (2020-01-01)
+  - Lebanon (2020-06-01)
+  - Afghanistan (2021-01-01)
+
+These charts provide early evidence that Binance volume correlates with broader
+ accessibility across FX-stressed countries.
 
 ## Contribution Guide
 

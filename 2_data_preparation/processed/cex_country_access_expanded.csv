@@ -1,0 +1,13 @@
+country,exchange,access_status,date_status_confirmed,allowed,source_url
+Nigeria,Binance,Allowed,2019-01-01,Yes,https://www.bloomberg.com/news/articles/2022-01-12/binance-dominates-nigeria-s-crypto-scene-despite-central-bank-ban
+Nigeria,KuCoin,Allowed,2020-06-01,Yes,https://www.makeuseof.com/how-to-use-kucoin-in-nigeria/
+Nigeria,Coinbase,Not Allowed,2021-01-01,No,https://help.coinbase.com/en/coinbase/trading-and-funding/trading-rules/places-coinbase-available
+Sudan,Binance,Allowed (via VPN/no KYC),2020-01-01,Yes,https://restofworld.org/2022/how-sudanese-crypto-users-evade-u-s-sanctions/
+Sudan,KuCoin,Not Allowed (sanctioned),2021-01-01,No,https://support.kucoin.plus/hc/en-us/articles/900000628626-KYC-and-AML-Policy
+Sudan,Coinbase,Not Allowed (sanctioned),2021-01-01,No,https://help.coinbase.com/en/coinbase/trading-and-funding/trading-rules/places-coinbase-available
+Lebanon,Binance,Allowed,2020-06-01,Yes,https://www.reuters.com/investigates/special-report/lebanon-crisis-crypto-currency/
+Lebanon,KuCoin,Allowed,2020-06-01,Yes,https://support.kucoin.plus/hc/en-us/articles/900000628626-KYC-and-AML-Policy
+Lebanon,Coinbase,Not Allowed,2021-01-01,No,https://help.coinbase.com/en/coinbase/trading-and-funding/trading-rules/places-coinbase-available
+Afghanistan,Binance,Allowed (prior to Taliban ban),2021-01-01,Yes,https://www.reuters.com/technology/crypto-use-rises-afghanistan-2021-08-18/
+Afghanistan,KuCoin,Not Allowed (sanctioned),2021-01-01,No,https://support.kucoin.plus/hc/en-us/articles/900000628626-KYC-and-AML-Policy
+Afghanistan,Coinbase,Not Allowed (sanctioned),2021-01-01,No,https://help.coinbase.com/en/coinbase/trading-and-funding/trading-rules/places-coinbase-available
