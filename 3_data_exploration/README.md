@@ -20,6 +20,16 @@ Notebooks or scripts here should:
 - **Output:** 7-day smoothed volume chart, exchange-level comparison
 - **Tools:** Python (pandas, matplotlib)
 
+### Active Wallet Count Search Trends (Anas)
+
+- **Goal:** Explore Google Trends data for Bitcoin, Cryptocurrency, Markets, and
+ NFTs across Lebanon, Afghanistan, Sudan, and Nigeria. Identify patterns and
+ peak interest periods.  
+- **Output:**  
+- Cleaned datasets for each country (CSV).  
+- Time-series plots (weekly search interest).  
+- **Tools:** Python (pandas, matplotlib, seaborn).
+
 ## Contribution Guide
 
 - Use separate notebooks or scripts for each dataset/topic

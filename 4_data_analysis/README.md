@@ -22,6 +22,15 @@ is ready for visualization or inclusion in the report.
 - **Description:** Daily stablecoin volume trend by exchange with policy
   overlays for Sudan, Afghanistan, Nigeria, and Lebanon.
 
+  ### Google Trends Analysis (Anas)
+
+- **Files:**
+  - `active_wallet_count.csv`
+- **Description:** Weekly Google Trends analysis (2020–2025) for Bitcoin,
+ Cryptocurrency, Markets, and NFTs across Lebanon, Afghanistan, Sudan, and Nigeria.
+  The dataset includes time-series search interest values and summary statistics
+   for each topic and country.
+
 ## Contribution Guide
 
 - Place final charts, tables, and merged outputs here

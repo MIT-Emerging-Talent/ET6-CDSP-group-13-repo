@@ -47,9 +47,18 @@ written as new files in the processed folder with clear names.
 
 If you are cleaning or transforming data:
 
-- Place your script here
-- Clearly log the input and output files
-- Add a short section like the above for your script in this README
+### `active_wallet_count.csv`
+
+- **Input**:  
+  - `raw_datasets/active_wallet_count.csv` (single file with data for
+   Nigeria, Lebanon, Afghanistan, Sudan)  
+- **Process**:  
+  1. Replaces `<1` values with `0`  
+  2. Standardizes dates to `YYYY-MM-DD`  
+  3. Filters for target countries (ignores others)  
+  4. Cleans column names (e.g., `bitcoin (nigeria)` → `bitcoin_nigeria`)  
+- **Output**:  
+  - Main file: `processed/active_wallet_count_cleaned.csv`  
 
 Keep it reproducible and transparent for everyone working on different parts
 of the project.
