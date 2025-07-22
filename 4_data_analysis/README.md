@@ -6,10 +6,10 @@ is ready for visualization or inclusion in the report.
 
 ## What Goes Here
 
-- Final cleaned datasets
-- Annotated graphs and outputs
-- Notebooks for producing results and figures
-- Analysis logic and summary tables
+- Final cleaned datasets.
+- Annotated graphs and outputs.
+- Notebooks for producing results and figures.
+- Analysis logic and summary tables.
 
 ## Example Outputs
 
@@ -22,8 +22,17 @@ is ready for visualization or inclusion in the report.
 - **Description:** Daily stablecoin volume trend by exchange with policy
   overlays for Sudan, Afghanistan, Nigeria, and Lebanon.
 
+### Google Trends Analysis (Anas)
+
+- **Files:**
+  - `active_wallet_count.csv`
+- **Description:** Weekly Google Trends analysis (2020–2025) for Bitcoin,
+  Cryptocurrency, Markets, and NFTs across Lebanon, Afghanistan, Sudan, and Nigeria.
+  The dataset includes time-series search interest values and summary statistics
+  for each topic and country.
+
 ## Contribution Guide
 
-- Place final charts, tables, and merged outputs here
-- Keep analysis logic separate from cleaning scripts
-- Reference outputs in your team’s final story map
+- Place final charts, tables, and merged outputs here.
+- Keep analysis logic separate from cleaning scripts.
+- Reference outputs in your team’s final story map.

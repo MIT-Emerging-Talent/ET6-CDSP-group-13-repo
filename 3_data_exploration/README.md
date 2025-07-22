@@ -8,20 +8,32 @@ distributions, and gaps.
 
 Notebooks or scripts here should:
 
-1. Read data from `1_datasets/raw_datasets/` or `2_data_preparation/processed/`
-2. Generate plots or summaries that help check data completeness or structure
-3. Save visuals (if needed) to `figures/` or note findings in `guide.md`
+1. Read data from `1_datasets/raw_datasets/` or `2_data_preparation/processed/`.
+2. Generate plots or summaries that help check data completeness or structure.
+3. Save visuals (if needed) to `figures/` or note findings in `guide.md`.
 
 ## Example Explorations
 
 ### Stablecoin Volume Inspection (Ahmed)
 
-- **Goal:** Check if daily CEX volume shows clear periods of drop/growth
-- **Output:** 7-day smoothed volume chart, exchange-level comparison
-- **Tools:** Python (pandas, matplotlib)
+- **Goal:** Check if daily CEX volume shows clear periods of drop/growth.
+- **Output:** 7-day smoothed volume chart, exchange-level comparison.
+- **Tools:** Python (pandas, matplotlib).
+
+### Active Wallet Count Search Trends (Anas)
+
+- **Goal:** Explore Google Trends data for Bitcoin, Cryptocurrency, Markets, and
+ NFTs across Lebanon, Afghanistan, Sudan, and Nigeria. Identify patterns and
+ peak interest periods.
+
+- **Output:**
+  - Cleaned datasets for each country (CSV).
+  - Time-series plots (weekly search interest).
+
+- **Tools:** Python (pandas, matplotlib, seaborn).
 
 ## Contribution Guide
 
-- Use separate notebooks or scripts for each dataset/topic
-- Describe what you’re exploring and what you found in `guide.md`
-- Use this stage to flag issues before we analyze
+- Use separate notebooks or scripts for each dataset/topic.
+- Describe what you’re exploring and what you found in `guide.md`.
+- Use this stage to flag issues before we analyze.
