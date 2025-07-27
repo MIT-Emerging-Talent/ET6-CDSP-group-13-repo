@@ -11,16 +11,22 @@ is ready for visualization or inclusion in the report.
 - Notebooks for producing results and figures.
 - Analysis logic and summary tables.
 
-## Example Outputs
+This folder contains final scripts and outputs used to support the research question:
+"How liquid and accessible are USDT & USDC on major CEXs, and how do access
+rules reshape that liquidity?"
 
-### CEX Volume Timeline (Ahmed)
+### USDT Volume Timeline + Access
 
-- **Files:**
-  - `central_exchange_daily_volume_2019-24.csv`
-  - `corrected_cex_rules_geo.csv`
-  - `stablecoin_volume_annotated_access.png`
-- **Description:** Daily stablecoin volume trend by exchange with policy
-  overlays for Sudan, Afghanistan, Nigeria, and Lebanon.
+- `usdt_cex_volume_analysis_with_setup.ipynb`: Notebook showing total and
+exchange-level USDT volumes. Annotates when Sudan, Nigeria, Lebanon, and
+Afghanistan gained access to Binance.
+- Supports the conclusion that Binance volume reflects broader accessibility
+during FX stress.
+
+### Inputs used
+
+- `/2_data_preparation/processed/central_exchange_daily_volume_2019-24.csv`
+- `/2_data_preparation/processed/cex_country_access_expanded.csv`
 
 ### Google Trends Analysis (Anas)
 

@@ -33,7 +33,7 @@ written as new files in the processed folder with clear names.
   - `central_exchange_daily_volume_2019-24.csv` in
     `2_data_preparation/processed/`.
 
-### `clean_cex_policy.py` (TODO)
+### `cex_country_access_expanded.csv` (TODO)
 
 ### `active_wallet_count.csv`
 
