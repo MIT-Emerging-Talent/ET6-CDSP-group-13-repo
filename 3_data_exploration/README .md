@@ -1,5 +1,3 @@
-# Data Exploration
-
 This folder is used to explore, validate, and check the quality of cleaned
 datasets. Team members can use this area to investigate coverage,
 distributions, and gaps.
