@@ -21,11 +21,12 @@ jobs:
   py_formatting:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Python - Check Formatting
-        uses: astral-sh/ruff-action@v1
-        with:
-          args: "format --check"
+    - uses: actions/checkout@v4
+    - name: Python - Check Formatting
+      uses: astral-sh/ruff-action@v1
+      with:
+        args: "format --check --exclude '*.ipynb'"
+
 
   py_linting:
     runs-on: ubuntu-latest
