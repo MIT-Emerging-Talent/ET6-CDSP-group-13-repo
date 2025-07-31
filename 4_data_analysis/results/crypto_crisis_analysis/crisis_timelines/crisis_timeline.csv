@@ -1,0 +1,22 @@
+date,country_code,event_type,title,description,impact_severity,expected_crypto_impact,data_collection_priority,sources
+2019-04-11,SD,coup,Omar al-Bashir Overthrown,"30-year dictator overthrown by military, economic sanctions remain",4,increase,4,BBC; Reuters; Al Jazeera
+2019-06-03,SD,political_crisis,Khartoum Massacre,"Military attacks protesters, internet cut, banking disrupted",5,increase,5,Human Rights Watch; BBC
+2021-10-25,SD,coup,Military Coup,"Military dissolves civilian government, banks closed, internet cut",5,increase,5,Reuters; BBC; Al Jazeera
+2023-04-15,SD,civil_war,RSF-SAF Conflict Begins,"Rapid Support Forces clash with army, banking system collapses",5,increase,5,UN News; Reuters; BBC
+2021-08-15,AF,regime_change,Taliban Takeover,"Taliban captures Kabul, government collapses, mass exodus",5,increase,5,BBC; Reuters; CNN
+2021-08-17,AF,sanctions,Assets Frozen,US freezes $9.5B in Afghan central bank assets,5,increase,5,Wall Street Journal; Reuters
+2021-12-22,AF,banking_crisis,Banking System Collapse,"Banks limit withdrawals, cash shortage, humanitarian crisis",5,increase,4,UN News; Reuters
+2019-01-23,VE,political_crisis,Guaidó Declares Presidency,"Opposition leader declares himself president, international recognition",4,increase,4,Reuters; BBC; CNN
+2019-03-07,VE,infrastructure_crisis,Nationwide Blackout,Massive power outage affects 70% of country for days,4,increase,3,Reuters; BBC
+2020-03-26,VE,sanctions,US Sanctions Intensify,Enhanced sanctions target Venezuelan oil industry,4,increase,3,US Treasury; Reuters
+2021-10-01,VE,currency_crisis,Bolívar Redenomination,Venezuela removes 6 zeros from currency due to inflation,3,increase,3,Reuters; Bloomberg
+2021-02-05,NG,policy_change,Central Bank Crypto Ban,CBN prohibits banks from facilitating crypto transactions,5,increase,5,CBN; Reuters; BBC
+2021-10-20,NG,political_crisis,EndSARS Anniversary,"Protests anniversary, youth turn to crypto for financial freedom",3,increase,3,BBC; Al Jazeera
+2023-02-01,NG,currency_crisis,Naira Scarcity Crisis,"Cash shortages due to new banknote rollout, people turn to digital alternatives",4,increase,4,Reuters; Bloomberg; Punch Nigeria
+2019-06-01,ZW,currency_crisis,USD Usage Banned,"Government bans USD, enforces RTGS dollar usage",4,increase,3,Reuters; Herald Zimbabwe
+2020-03-01,ZW,currency_crisis,Inflation Reaches 800%,"Hyperinflation returns, currency rapidly loses value",5,increase,4,Reuters; Bloomberg; ZIMSTAT
+2020-03-30,ZW,infrastructure_crisis,COVID-19 Lockdown,"Strict lockdown measures, informal economy disrupted",3,mixed,2,WHO; Reuters
+2019-08-12,AR,currency_crisis,Peso Crashes 30%,Primary election results trigger massive peso devaluation,5,increase,5,Reuters; Bloomberg; Financial Times
+2019-10-27,AR,political_crisis,Presidential Election,"Alberto Fernández wins, markets fear return to populist policies",4,increase,3,Reuters; Bloomberg
+2020-09-01,AR,policy_change,Stricter Capital Controls,Government tightens dollar purchase restrictions,4,increase,4,Central Bank of Argentina; Reuters
+2022-07-02,AR,political_crisis,Economy Minister Resigns,Martín Guzmán resigns amid economic turmoil,3,increase,3,Reuters; Bloomberg; La Nacion

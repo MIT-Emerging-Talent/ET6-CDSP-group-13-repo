@@ -1,0 +1,4 @@
+date,event_type,title,description,impact_severity,expected_crypto_impact,data_collection_priority,sources
+2019-06-01,currency_crisis,USD Usage Banned,"Government bans USD, enforces RTGS dollar usage",4,increase,3,Reuters; Herald Zimbabwe
+2020-03-01,currency_crisis,Inflation Reaches 800%,"Hyperinflation returns, currency rapidly loses value",5,increase,4,Reuters; Bloomberg; ZIMSTAT
+2020-03-30,infrastructure_crisis,COVID-19 Lockdown,"Strict lockdown measures, informal economy disrupted",3,mixed,2,WHO; Reuters

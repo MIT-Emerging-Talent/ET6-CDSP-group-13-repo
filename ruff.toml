@@ -1,0 +1,18 @@
+# Ruff configuration for the crypto research project
+exclude = [
+    "*.ipynb",
+    ".git",
+    ".venv", 
+    "__pycache__",
+    ".ruff_cache",
+    ".pytest_cache"
+]
+
+line-length = 100
+
+[lint]
+select = ["E", "F", "W", "I"]
+ignore = [
+    "E501",  # Line too long
+    "F821",  # Undefined name (notebooks)
+]

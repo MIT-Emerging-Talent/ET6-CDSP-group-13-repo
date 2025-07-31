@@ -1,0 +1,23 @@
+[tool.ruff]
+# Exclude Jupyter notebooks from linting since they have cell dependencies
+exclude = [
+    "*.ipynb",
+    ".git",
+    ".venv",
+    "__pycache__",
+    ".ruff_cache",
+    ".pytest_cache"
+]
+
+# Allow line length up to 100 characters for better readability
+line-length = 100
+
+[tool.ruff.lint]
+# Select the rules you want to enforce
+select = ["E", "F", "W", "I"]
+
+# Ignore specific rules that are problematic for data science code
+ignore = [
+    "E501",  # Line too long (handled by line-length setting)
+    "F821",  # Undefined name (common in notebooks due to cell execution order)
+]

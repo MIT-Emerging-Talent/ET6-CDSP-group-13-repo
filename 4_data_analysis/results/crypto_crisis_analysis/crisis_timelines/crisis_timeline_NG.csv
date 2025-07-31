@@ -1,0 +1,4 @@
+date,event_type,title,description,impact_severity,expected_crypto_impact,data_collection_priority,sources
+2021-02-05,policy_change,Central Bank Crypto Ban,CBN prohibits banks from facilitating crypto transactions,5,increase,5,CBN; Reuters; BBC
+2021-10-20,political_crisis,EndSARS Anniversary,"Protests anniversary, youth turn to crypto for financial freedom",3,increase,3,BBC; Al Jazeera
+2023-02-01,currency_crisis,Naira Scarcity Crisis,"Cash shortages due to new banknote rollout, people turn to digital alternatives",4,increase,4,Reuters; Bloomberg; Punch Nigeria

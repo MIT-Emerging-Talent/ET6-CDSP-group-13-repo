@@ -1,8 +1,13 @@
-__pycache__
-*.pytest_cache
+__pycache__/
+*.pytest_cache/
 venv/
-.venv
+.venv/
 # .env
 *.db
-*.idea
-*.ruff_cache
+.idea/
+.ruff_cache/
+*.pyc
+*.pyo
+*.egg-info/
+.DS_Store
+Thumbs.db

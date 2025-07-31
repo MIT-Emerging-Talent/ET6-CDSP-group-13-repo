@@ -1,0 +1,5 @@
+date,event_type,title,description,impact_severity,expected_crypto_impact,data_collection_priority,sources
+2019-08-12,currency_crisis,Peso Crashes 30%,Primary election results trigger massive peso devaluation,5,increase,5,Reuters; Bloomberg; Financial Times
+2019-10-27,political_crisis,Presidential Election,"Alberto Fernández wins, markets fear return to populist policies",4,increase,3,Reuters; Bloomberg
+2020-09-01,policy_change,Stricter Capital Controls,Government tightens dollar purchase restrictions,4,increase,4,Central Bank of Argentina; Reuters
+2022-07-02,political_crisis,Economy Minister Resigns,Martín Guzmán resigns amid economic turmoil,3,increase,3,Reuters; Bloomberg; La Nacion
