@@ -1,5 +1,7 @@
 # Crisis Impact Visualization Guide
 
+<!-- markdownlint-disable MD013 -->
+
 ## 📊 Overview
 
 The cryptocurrency crisis impact analysis project includes comprehensive visualization capabilities using matplotlib and seaborn. This professional plotting system creates publication-quality charts and dashboards to visualize crisis correlation analysis results.

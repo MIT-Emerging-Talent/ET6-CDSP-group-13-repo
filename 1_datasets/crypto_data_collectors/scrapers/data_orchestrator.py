@@ -24,7 +24,7 @@ License: MIT
 
 import sys
 import os
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import List, Dict, Any
 import time
 
@@ -218,7 +218,7 @@ class DataCollectionOrchestrator:
 
         collection_summary["countries_processed"] = len(countries)
 
-        print(f"\n🎉 Current snapshot complete!")
+        print("\n🎉 Current snapshot complete!")
         print(f"📊 Total ads collected: {collection_summary['total_ads_collected']}")
         print(f"🌍 Countries processed: {collection_summary['countries_processed']}")
 
@@ -256,7 +256,7 @@ class DataCollectionOrchestrator:
 
         country_profile = get_profile_by_country_code(country_code)
 
-        print(f"\n🚨 CRISIS PERIOD DATA COLLECTION")
+        print("\n🚨 CRISIS PERIOD DATA COLLECTION")
         print(f"🌍 Country: {country_profile['name']} ({country_code})")
         print(f"📅 Period: {crisis_start} to {crisis_end}")
         print(f"🔍 Platforms: {', '.join(platforms)}")
@@ -274,7 +274,7 @@ class DataCollectionOrchestrator:
         }
 
         # Collect exchange rates for crisis period
-        print(f"\n💱 Collecting exchange rates for crisis period...")
+        print("\n💱 Collecting exchange rates for crisis period...")
         try:
             rates = self.exchange_collector.collect_crisis_period_rates(
                 country_code, crisis_start, crisis_end
@@ -324,7 +324,7 @@ class DataCollectionOrchestrator:
                     "error": str(e),
                 }
 
-        print(f"\n🎯 Crisis period collection complete!")
+        print("\n🎯 Crisis period collection complete!")
         print(f"📊 Total historical ads: {crisis_summary['total_historical_ads']}")
         print(f"💱 Exchange rates: {crisis_summary['exchange_rates_collected']}")
 
@@ -440,52 +440,60 @@ def main():
 
     # Use country_profiles utility to get all supported countries
     from utils.country_profiles import list_supported_countries
-    
+
     try:
         # Get all countries from our config
         all_countries = list_supported_countries()
-        country_codes = [country['country_code'] for country in all_countries]
-        
+        country_codes = [country["country_code"] for country in all_countries]
+
         print(f"📊 Target countries from config: {', '.join(country_codes)}")
         print(f"🎯 Total countries to collect: {len(country_codes)}")
         print("=" * 60)
-        
+
         # Use comprehensive collection (includes P2P + market context - NO DUPLICATION)
-        print(f"\n🔍 Running comprehensive collection for all {len(country_codes)} countries...")
+        print(
+            f"\n🔍 Running comprehensive collection for all {len(country_codes)} countries..."
+        )
         results = orchestrator.collect_comprehensive_snapshot(country_codes)
 
-        print(f"\n📊 COMPREHENSIVE COLLECTION RESULTS:")
+        print("\n📊 COMPREHENSIVE COLLECTION RESULTS:")
         print(f"📈 P2P ads collected: {results['total_ads_collected']}")
         print(f"📊 Market context sources: {len(results.get('market_context', {}))}")
         print(f"🌍 Countries processed: {len(country_codes)}")
 
         # Show P2P platform breakdown
-        if 'p2p_data' in results and 'platform_stats' in results['p2p_data']:
+        if "p2p_data" in results and "platform_stats" in results["p2p_data"]:
             print(f"📊 P2P Platform stats: {results['p2p_data']['platform_stats']}")
 
         if results.get("errors"):
             print(f"\n⚠️  Errors encountered: {len(results['errors'])}")
-            for error in results['errors'][:3]:  # Show first 3 errors
+            for error in results["errors"][:3]:  # Show first 3 errors
                 print(f"   ❌ {error}")
-        
+
         # Show success summary
-        if results['total_ads_collected'] > 0:
-            print(f"\n✅ SUCCESS: Collected {results['total_ads_collected']} total P2P ads")
-            print(f"� Plus market context from {len(results.get('market_context', {}))} APIs")
-            print(f"�💾 Data saved to: data/raw/{orchestrator.today}/ and data/analysis/")
+        if results["total_ads_collected"] > 0:
+            print(
+                f"\n✅ SUCCESS: Collected {results['total_ads_collected']} total P2P ads"
+            )
+            print(
+                f"� Plus market context from {len(results.get('market_context', {}))} APIs"
+            )
+            print(
+                f"�💾 Data saved to: data/raw/{orchestrator.today}/ and data/analysis/"
+            )
         else:
-            print(f"\n⚠️  No P2P ads collected - check country currency support")
-            
+            print("\n⚠️  No P2P ads collected - check country currency support")
+
     except Exception as e:
         print(f"❌ Error loading countries from config: {e}")
         print("📝 Falling back to manual country list...")
-        
+
         # Fallback to manual list if config fails
         fallback_countries = ["SD", "VE", "AR", "AF", "NG", "ZW"]
         print(f"🔄 Using fallback countries: {', '.join(fallback_countries)}")
         results = orchestrator.collect_comprehensive_snapshot(fallback_countries)
-        
-        print(f"\n📊 Fallback Results:")
+
+        print("\n📊 Fallback Results:")
         print(f"P2P ads: {results['total_ads_collected']}")
         print(f"Context APIs: {len(results.get('market_context', {}))}")
 

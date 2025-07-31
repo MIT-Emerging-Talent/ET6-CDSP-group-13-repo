@@ -39,9 +39,11 @@ class LocalBitcoinsPublicScraper:
     def __init__(self):
         self.base_url = "https://localbitcoins.com"
         self.session = requests.Session()
-        self.session.headers.update({
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-        })
+        self.session.headers.update(
+            {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+            }
+        )
         self.csv_manager = CSVDataManager()
 
     def get_country_ads(
@@ -177,7 +179,7 @@ class LocalBitcoinsPublicScraper:
         if ads:
             # Save to CSV
             filename = f"localbitcoins_p2p_{country_code}_{datetime.now().strftime('%Y-%m-%d')}.csv"
-            saved_count = self.csv_manager.save_raw_ads(ads, filename)
+            self.csv_manager.save_raw_ads(ads, filename)
 
             # Log collection
             self.csv_manager.log_collection_run(
@@ -195,9 +197,9 @@ class LocalBitcoinsPublicScraper:
             print(f"   📉 Sell ads: {len(sell_ads)}")
 
             if ads:
-                avg_price = sum(ad["price"] for ad in ads if ad["price"] > 0) / len([
-                    ad for ad in ads if ad["price"] > 0
-                ])
+                avg_price = sum(ad["price"] for ad in ads if ad["price"] > 0) / len(
+                    [ad for ad in ads if ad["price"] > 0]
+                )
                 print(f"   💰 Average price: {avg_price:.2f} {ads[0]['fiat']}")
 
                 # Payment method analysis
@@ -283,7 +285,7 @@ class LocalBitcoinsPublicScraper:
                 print(f"❌ {error_msg}")
                 results["errors"].append(error_msg)
 
-        print(f"\n🎉 LOCALBITCOINS COLLECTION COMPLETE!")
+        print("\n🎉 LOCALBITCOINS COLLECTION COMPLETE!")
         print(f"📊 Total ads: {results['total_ads']}")
         print(
             f"🌍 Countries successful: {results['countries_successful']}/{results['countries_processed']}"

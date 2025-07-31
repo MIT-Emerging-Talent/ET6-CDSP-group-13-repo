@@ -22,10 +22,9 @@ License: MIT
 """
 
 import requests
-import json
 import time
 from datetime import datetime, timedelta
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any
 import sys
 import os
 
@@ -69,10 +68,12 @@ class ExchangeRateCollector:
         }
 
         self.session = requests.Session()
-        self.session.headers.update({
-            "User-Agent": "CryptoAnalysis/1.0 (Research Project)",
-            "Accept": "application/json",
-        })
+        self.session.headers.update(
+            {
+                "User-Agent": "CryptoAnalysis/1.0 (Research Project)",
+                "Accept": "application/json",
+            }
+        )
 
     def get_current_rates(self, base_currency: str = "USD") -> Dict[str, float]:
         """

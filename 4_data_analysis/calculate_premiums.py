@@ -19,19 +19,37 @@ ExchangeRateCollector = None
 try:
     # Import data management utilities directly from files
     project_root = Path(__file__).parent.parent
-    csv_manager_path = project_root / "1_datasets" / "crypto_data_collectors" / "utils" / "csv_data_manager.py"
-    exchange_rates_path = project_root / "1_datasets" / "crypto_data_collectors" / "utils" / "exchange_rates.py"
-    
+    csv_manager_path = (
+        project_root
+        / "1_datasets"
+        / "crypto_data_collectors"
+        / "utils"
+        / "csv_data_manager.py"
+    )
+    exchange_rates_path = (
+        project_root
+        / "1_datasets"
+        / "crypto_data_collectors"
+        / "utils"
+        / "exchange_rates.py"
+    )
+
     if csv_manager_path.exists():
         import importlib.util
-        spec = importlib.util.spec_from_file_location("csv_data_manager", csv_manager_path)
+
+        spec = importlib.util.spec_from_file_location(
+            "csv_data_manager", csv_manager_path
+        )
         csv_module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(csv_module)
         CSVDataManager = csv_module.CSVDataManager
-    
+
     if exchange_rates_path.exists():
         import importlib.util
-        spec = importlib.util.spec_from_file_location("exchange_rates", exchange_rates_path)
+
+        spec = importlib.util.spec_from_file_location(
+            "exchange_rates", exchange_rates_path
+        )
         exchange_module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(exchange_module)
         ExchangeRateCollector = exchange_module.ExchangeRateCollector
@@ -66,10 +84,23 @@ def calculate_premiums():
         return
 
     # Load current exchange rates - update path to match repository structure
-    rates_file = project_root / "1_datasets" / "raw_datasets" / "exchange_rates" / "rates_2025-07-30.csv"
+    rates_file = (
+        project_root
+        / "1_datasets"
+        / "raw_datasets"
+        / "exchange_rates"
+        / "rates_2025-07-30.csv"
+    )
     if not rates_file.exists():
         # Try alternative location
-        rates_file = project_root / "1_datasets" / "crypto_data_collectors" / "data" / "exchange_rates" / "rates_2025-07-30.csv"
+        rates_file = (
+            project_root
+            / "1_datasets"
+            / "crypto_data_collectors"
+            / "data"
+            / "exchange_rates"
+            / "rates_2025-07-30.csv"
+        )
         if not rates_file.exists():
             print(f"❌ Exchange rates file not found. Tried: {rates_file}")
             return

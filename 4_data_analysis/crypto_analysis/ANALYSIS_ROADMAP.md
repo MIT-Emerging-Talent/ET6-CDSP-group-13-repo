@@ -1,5 +1,7 @@
 # 📈 Crisis Correlation Analysis - COMPLETED
 
+<!-- markdownlint-disable MD013 -->
+
 **Status**: ✅ **ANALYSIS COMPLETE WITH PROFESSIONAL VISUALIZATIONS**  
 **Program**: MIT Emerging Talents Program - Group 13 (Data Mavericks)  
 **Completion Date**: January 30, 2025  

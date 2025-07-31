@@ -18,7 +18,7 @@ Author: Clement MUGISHA
 import requests
 import json
 import time
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import List, Dict, Any
 import sys
 import os
@@ -39,9 +39,11 @@ class CoinGeckoScraper:
     def __init__(self):
         self.base_url = "https://api.coingecko.com/api/v3"
         self.session = requests.Session()
-        self.session.headers.update({
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-        })
+        self.session.headers.update(
+            {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+            }
+        )
         self.csv_manager = CSVDataManager()
 
         # Rate limiting for free tier (50 calls/minute = ~1 call per 1.2 seconds)
@@ -127,7 +129,7 @@ class CoinGeckoScraper:
         params = {"per_page": min(per_page, 250)}
 
         try:
-            print(f"🔍 Fetching exchanges from CoinGecko...")
+            print("🔍 Fetching exchanges from CoinGecko...")
             response = self.session.get(url, params=params, timeout=15)
             response.raise_for_status()
 
@@ -145,16 +147,20 @@ class CoinGeckoScraper:
                     keyword in name or keyword in description
                     for keyword in p2p_keywords
                 ):
-                    p2p_exchanges.append({
-                        "id": exchange.get("id"),
-                        "name": exchange.get("name"),
-                        "country": exchange.get("country"),
-                        "description": exchange.get("description"),
-                        "trade_volume_24h_btc": exchange.get("trade_volume_24h_btc"),
-                        "trust_score": exchange.get("trust_score"),
-                        "url": exchange.get("url"),
-                        "timestamp": datetime.now().isoformat(),
-                    })
+                    p2p_exchanges.append(
+                        {
+                            "id": exchange.get("id"),
+                            "name": exchange.get("name"),
+                            "country": exchange.get("country"),
+                            "description": exchange.get("description"),
+                            "trade_volume_24h_btc": exchange.get(
+                                "trade_volume_24h_btc"
+                            ),
+                            "trust_score": exchange.get("trust_score"),
+                            "url": exchange.get("url"),
+                            "timestamp": datetime.now().isoformat(),
+                        }
+                    )
 
             print(
                 f"✅ Found {len(p2p_exchanges)} potential P2P exchanges out of {len(exchanges)} total"
@@ -280,7 +286,7 @@ class CoinGeckoScraper:
 
                 time.sleep(self.rate_limit_delay)
 
-            print(f"✅ CoinGecko data collection complete!")
+            print("✅ CoinGecko data collection complete!")
             print(f"   💰 Current prices: {len(results['current_prices'])} datasets")
             print(f"   🏪 P2P exchanges: {len(results['p2p_exchanges'])} found")
             print(
@@ -305,13 +311,15 @@ class CoinGeckoScraper:
             for crypto, currencies in price_data.get("prices", {}).items():
                 for currency, value in currencies.items():
                     if currency != "last_updated_at":
-                        rows.append({
-                            "timestamp": price_data["timestamp"],
-                            "cryptocurrency": crypto,
-                            "fiat_currency": currency.upper(),
-                            "price": value,
-                            "source": "coingecko",
-                        })
+                        rows.append(
+                            {
+                                "timestamp": price_data["timestamp"],
+                                "cryptocurrency": crypto,
+                                "fiat_currency": currency.upper(),
+                                "price": value,
+                                "source": "coingecko",
+                            }
+                        )
 
             if rows:
                 df = pd.DataFrame(rows)

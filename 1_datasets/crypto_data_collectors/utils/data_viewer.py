@@ -57,11 +57,13 @@ def main():
         print("\n🌍 Summary by Country:")
         country_summary = (
             all_data.groupby(["country_code", "fiat"])
-            .agg({
-                "ad_id": "count",
-                "trade_type": lambda x: f"Buy: {sum(x == 'BUY')}, Sell: {sum(x == 'SELL')}",
-                "price": ["min", "max", "mean"],
-            })
+            .agg(
+                {
+                    "ad_id": "count",
+                    "trade_type": lambda x: f"Buy: {sum(x == 'BUY')}, Sell: {sum(x == 'SELL')}",
+                    "price": ["min", "max", "mean"],
+                }
+            )
             .round(2)
         )
 

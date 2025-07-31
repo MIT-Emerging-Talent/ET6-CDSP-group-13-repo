@@ -24,9 +24,7 @@ data/
 Author: Clement MUGISHA
 """
 
-import os
 from pathlib import Path
-import pandas as pd
 from datetime import datetime
 
 
@@ -72,22 +70,26 @@ def validate_data_organization():
     premium_files = (
         list(premium_folder.glob("*.csv")) if premium_folder.exists() else []
     )
-    script_validations.append({
-        "script": "calculate_premiums.py",
-        "expected_folder": "processed/premium_calculations/",
-        "files_found": len(premium_files),
-        "status": "✅" if premium_files else "⚠️",
-    })
+    script_validations.append(
+        {
+            "script": "calculate_premiums.py",
+            "expected_folder": "processed/premium_calculations/",
+            "files_found": len(premium_files),
+            "status": "✅" if premium_files else "⚠️",
+        }
+    )
 
     # 2. CryptoCompare historical data
     cc_folder = base_dir / "historical/cryptocompare"
     cc_files = list(cc_folder.glob("*.csv")) if cc_folder.exists() else []
-    script_validations.append({
-        "script": "cryptocompare_free.py",
-        "expected_folder": "historical/cryptocompare/",
-        "files_found": len(cc_files),
-        "status": "✅" if cc_files else "⚠️",
-    })
+    script_validations.append(
+        {
+            "script": "cryptocompare_free.py",
+            "expected_folder": "historical/cryptocompare/",
+            "files_found": len(cc_files),
+            "status": "✅" if cc_files else "⚠️",
+        }
+    )
 
     # 3. CryptoCompare current prices (should be in analysis/)
     cc_current_files = (
@@ -95,44 +97,52 @@ def validate_data_organization():
         if (base_dir / "analysis").exists()
         else []
     )
-    script_validations.append({
-        "script": "cryptocompare_free.py (current)",
-        "expected_folder": "analysis/",
-        "files_found": len(cc_current_files),
-        "status": "✅" if cc_current_files else "⚠️",
-    })
+    script_validations.append(
+        {
+            "script": "cryptocompare_free.py (current)",
+            "expected_folder": "analysis/",
+            "files_found": len(cc_current_files),
+            "status": "✅" if cc_current_files else "⚠️",
+        }
+    )
 
     # 4. Crisis correlations
     crisis_folder = base_dir / "analysis/crisis_correlations"
     crisis_files = list(crisis_folder.glob("*.csv")) if crisis_folder.exists() else []
-    script_validations.append({
-        "script": "comprehensive_analyzer.py",
-        "expected_folder": "analysis/crisis_correlations/",
-        "files_found": len(crisis_files),
-        "status": "✅" if crisis_files else "⚠️",
-    })
+    script_validations.append(
+        {
+            "script": "comprehensive_analyzer.py",
+            "expected_folder": "analysis/crisis_correlations/",
+            "files_found": len(crisis_files),
+            "status": "✅" if crisis_files else "⚠️",
+        }
+    )
 
     # 5. Analysis reports
     reports_folder = base_dir / "analysis/reports"
     report_files = list(reports_folder.glob("*")) if reports_folder.exists() else []
-    script_validations.append({
-        "script": "comprehensive_analyzer.py (reports)",
-        "expected_folder": "analysis/reports/",
-        "files_found": len(report_files),
-        "status": "✅" if report_files else "⚠️",
-    })
+    script_validations.append(
+        {
+            "script": "comprehensive_analyzer.py (reports)",
+            "expected_folder": "analysis/reports/",
+            "files_found": len(report_files),
+            "status": "✅" if report_files else "⚠️",
+        }
+    )
 
     # 6. Country aggregates
     country_folder = base_dir / "processed/country_aggregates"
     country_files = (
         list(country_folder.glob("*.csv")) if country_folder.exists() else []
     )
-    script_validations.append({
-        "script": "comprehensive_analyzer.py (country)",
-        "expected_folder": "processed/country_aggregates/",
-        "files_found": len(country_files),
-        "status": "✅" if country_files else "⚠️",
-    })
+    script_validations.append(
+        {
+            "script": "comprehensive_analyzer.py (country)",
+            "expected_folder": "processed/country_aggregates/",
+            "files_found": len(country_files),
+            "status": "✅" if country_files else "⚠️",
+        }
+    )
 
     # Display validation results
     for validation in script_validations:

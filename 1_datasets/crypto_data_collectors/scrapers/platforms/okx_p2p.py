@@ -22,7 +22,7 @@ License: MIT
 import requests
 import json
 import time
-from datetime import datetime, timedelta
+from datetime import datetime
 from typing import List, Dict, Any
 import sys
 import os
@@ -32,7 +32,7 @@ sys.path.append(
     os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 )
 
-from utils.country_profiles import get_profile_by_country_code, list_supported_countries
+from utils.country_profiles import get_profile_by_country_code
 from utils.csv_data_manager import CSVDataManager
 
 
@@ -50,13 +50,15 @@ class OKXPPScraper:
             "https://www.okx.com/api/v5/market/exchange-rate",  # Alternative
         ]
         self.session = requests.Session()
-        self.session.headers.update({
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-            "Referer": "https://www.okx.com/",
-            "Origin": "https://www.okx.com",
-        })
+        self.session.headers.update(
+            {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+                "Referer": "https://www.okx.com/",
+                "Origin": "https://www.okx.com",
+            }
+        )
         self.csv_manager = CSVDataManager()
 
     def get_ads(

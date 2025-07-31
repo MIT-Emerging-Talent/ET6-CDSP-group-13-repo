@@ -1,5 +1,7 @@
 # 🌐 P2P Cryptocurrency Crisis Impact Analysis
 
+<!-- markdownlint-disable MD013 -->
+
 **Author**: Clement MUGISHA  
 **Program**: MIT Emerging Talents Program - Group 13 (Data Mavericks)  
 **Status**: Visualization & Analysis Complete - Ready for Research Publication  

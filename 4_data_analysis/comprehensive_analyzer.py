@@ -43,12 +43,27 @@ ExchangeRateCollector = None
 try:
     # Import CSV data manager from the actual file location
     project_root = Path(__file__).parent.parent
-    csv_manager_path = project_root / "1_datasets" / "crypto_data_collectors" / "utils" / "csv_data_manager.py"
-    exchange_rates_path = project_root / "1_datasets" / "crypto_data_collectors" / "utils" / "exchange_rates.py"
-    
+    csv_manager_path = (
+        project_root
+        / "1_datasets"
+        / "crypto_data_collectors"
+        / "utils"
+        / "csv_data_manager.py"
+    )
+    exchange_rates_path = (
+        project_root
+        / "1_datasets"
+        / "crypto_data_collectors"
+        / "utils"
+        / "exchange_rates.py"
+    )
+
     if csv_manager_path.exists():
         import importlib.util
-        spec = importlib.util.spec_from_file_location("csv_data_manager", csv_manager_path)
+
+        spec = importlib.util.spec_from_file_location(
+            "csv_data_manager", csv_manager_path
+        )
         csv_module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(csv_module)
         CSVDataManager = csv_module.CSVDataManager
@@ -58,7 +73,10 @@ try:
 
     if exchange_rates_path.exists():
         import importlib.util
-        spec = importlib.util.spec_from_file_location("exchange_rates", exchange_rates_path)
+
+        spec = importlib.util.spec_from_file_location(
+            "exchange_rates", exchange_rates_path
+        )
         exchange_module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(exchange_module)
         ExchangeRateCollector = exchange_module.ExchangeRateCollector
@@ -72,9 +90,16 @@ except Exception as e:
 # Import visualization module
 PLOTTING_AVAILABLE = False
 try:
-    viz_path = project_root / "3_data_exploration" / "crypto_visualizations" / "visualization" / "crisis_plots.py"
+    viz_path = (
+        project_root
+        / "3_data_exploration"
+        / "crypto_visualizations"
+        / "visualization"
+        / "crisis_plots.py"
+    )
     if viz_path.exists():
         import importlib.util
+
         spec = importlib.util.spec_from_file_location("crisis_plots", viz_path)
         viz_module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(viz_module)
@@ -94,16 +119,21 @@ class CrisisImpactAnalyzer:
         if CSVDataManager is None or ExchangeRateCollector is None:
             print("⚠️ Required modules not available. Check import paths.")
             return
-        
+
         self.csv_manager = CSVDataManager()
         self.rate_collector = ExchangeRateCollector()
         self.timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        
+
         # Set up paths relative to repository structure
         self.project_root = Path(__file__).parent.parent
         self.data_root = self.project_root / "1_datasets"
         self.results_root = Path(__file__).parent / "results"
-        self.viz_root = self.project_root / "3_data_exploration" / "crypto_visualizations" / "generated_plots"
+        self.viz_root = (
+            self.project_root
+            / "3_data_exploration"
+            / "crypto_visualizations"
+            / "generated_plots"
+        )
 
         # Ensure all output directories exist
         self.setup_directories()
@@ -112,7 +142,7 @@ class CrisisImpactAnalyzer:
         """Create all necessary output directories."""
         directories = [
             self.data_root / "processed" / "premium_calculations",
-            self.data_root / "processed" / "daily_summaries", 
+            self.data_root / "processed" / "daily_summaries",
             self.data_root / "processed" / "country_aggregates",
             self.results_root / "reports",
             self.results_root / "crisis_correlations",
@@ -140,13 +170,15 @@ class CrisisImpactAnalyzer:
 
         for country in p2p_data["country_code"].unique():
             country_data = p2p_data[p2p_data["country_code"] == country]
-            
+
             if len(country_data) == 0:
                 continue  # Skip empty country data
 
             stats = {
                 "country_code": country,
-                "fiat_currency": country_data["fiat"].iloc[0] if not country_data["fiat"].empty else "Unknown",
+                "fiat_currency": country_data["fiat"].iloc[0]
+                if not country_data["fiat"].empty
+                else "Unknown",
                 "total_ads": len(country_data),
                 "buy_ads": len(country_data[country_data["trade_type"] == "BUY"]),
                 "sell_ads": len(country_data[country_data["trade_type"] == "SELL"]),
@@ -185,7 +217,9 @@ class CrisisImpactAnalyzer:
         # Save country aggregates
         country_df = pd.DataFrame(country_stats)
         output_file = (
-            self.data_root / "processed" / "country_aggregates"
+            self.data_root
+            / "processed"
+            / "country_aggregates"
             / f"market_structure_{self.timestamp}.csv"
         )
         country_df.to_csv(output_file, index=False)
@@ -200,9 +234,18 @@ class CrisisImpactAnalyzer:
 
         # Load historical price data
         historical_files = {
-            "BTC": self.results_root / "historical" / "yahoo_finance" / "BTC_USD_historical.csv",
-            "ETH": self.results_root / "historical" / "yahoo_finance" / "ETH_USD_historical.csv", 
-            "USDT": self.results_root / "historical" / "yahoo_finance" / "USDT_USD_historical.csv",
+            "BTC": self.results_root
+            / "historical"
+            / "yahoo_finance"
+            / "BTC_USD_historical.csv",
+            "ETH": self.results_root
+            / "historical"
+            / "yahoo_finance"
+            / "ETH_USD_historical.csv",
+            "USDT": self.results_root
+            / "historical"
+            / "yahoo_finance"
+            / "USDT_USD_historical.csv",
         }
 
         historical_data = {}
@@ -223,7 +266,7 @@ class CrisisImpactAnalyzer:
         if CrisisTimelineManager is None:
             print("⚠️ CrisisTimelineManager not available")
             return None
-            
+
         timeline_manager = CrisisTimelineManager()
         crisis_events = timeline_manager.crisis_events
         correlations = []
@@ -284,7 +327,9 @@ class CrisisImpactAnalyzer:
         # Save correlation analysis
         correlation_df = pd.DataFrame(correlations)
         output_file = (
-            self.results_root / "analysis" / "crisis_correlations"
+            self.results_root
+            / "analysis"
+            / "crisis_correlations"
             / f"historical_correlation_{self.timestamp}.csv"
         )
         correlation_df.to_csv(output_file, index=False)
@@ -386,7 +431,9 @@ class CrisisImpactAnalyzer:
 
         # Save comprehensive report
         report_file = (
-            self.results_root / "analysis" / "reports"
+            self.results_root
+            / "analysis"
+            / "reports"
             / f"comprehensive_analysis_{self.timestamp}.json"
         )
 

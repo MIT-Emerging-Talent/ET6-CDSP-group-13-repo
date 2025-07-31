@@ -29,9 +29,13 @@ def main():
         # Load visualization engine using absolute path
         import os
         import importlib.util
-        
-        viz_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 
-                               '3_data_exploration', 'crypto_visualizations', 'crisis_plots.py')
+
+        viz_path = os.path.join(
+            os.path.dirname(os.path.dirname(__file__)),
+            "3_data_exploration",
+            "crypto_visualizations",
+            "crisis_plots.py",
+        )
         spec = importlib.util.spec_from_file_location("crisis_plots", viz_path)
         viz_module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(viz_module)

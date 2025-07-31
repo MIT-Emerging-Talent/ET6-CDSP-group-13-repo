@@ -63,7 +63,7 @@ class CSVDataManager:
             self.base_dir = project_root / "1_datasets"
         else:
             self.base_dir = Path(base_data_dir)
-            
+
         self.raw_dir = self.base_dir / "raw_datasets" / "crypto_p2p"
         self.processed_dir = self.base_dir / "processed" / "crypto_p2p"
         self.exchange_rates_dir = self.base_dir / "raw_datasets" / "exchange_rates"
@@ -400,11 +400,13 @@ class CSVDataManager:
         # Calculate summary metrics
         summary_data = []
 
-        for (platform, country, fiat), group in df.groupby([
-            "platform",
-            "country_code",
-            "fiat",
-        ]):
+        for (platform, country, fiat), group in df.groupby(
+            [
+                "platform",
+                "country_code",
+                "fiat",
+            ]
+        ):
             buy_ads = group[group["trade_type"] == "BUY"]
             sell_ads = group[group["trade_type"] == "SELL"]
 

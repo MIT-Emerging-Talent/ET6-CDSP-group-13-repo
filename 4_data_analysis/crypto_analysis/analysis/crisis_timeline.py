@@ -23,8 +23,7 @@ Author: Clement MUGISHA
 License: MIT
 """
 
-from datetime import datetime
-from typing import List, Dict, Any
+from typing import List
 from dataclasses import dataclass
 import sys
 from pathlib import Path
@@ -78,259 +77,271 @@ class CrisisTimelineManager:
         events = []
 
         # SUDAN - Conflict and Political Instability
-        events.extend([
-            CrisisEvent(
-                date="2019-04-11",
-                country_code="SD",
-                event_type="coup",
-                title="Omar al-Bashir Overthrown",
-                description="30-year dictator overthrown by military, economic sanctions remain",
-                impact_severity=4,
-                expected_crypto_impact="increase",
-                data_collection_priority=4,
-                sources=["BBC", "Reuters", "Al Jazeera"],
-            ),
-            CrisisEvent(
-                date="2019-06-03",
-                country_code="SD",
-                event_type="political_crisis",
-                title="Khartoum Massacre",
-                description="Military attacks protesters, internet cut, banking disrupted",
-                impact_severity=5,
-                expected_crypto_impact="increase",
-                data_collection_priority=5,
-                sources=["Human Rights Watch", "BBC"],
-            ),
-            CrisisEvent(
-                date="2021-10-25",
-                country_code="SD",
-                event_type="coup",
-                title="Military Coup",
-                description="Military dissolves civilian government, banks closed, internet cut",
-                impact_severity=5,
-                expected_crypto_impact="increase",
-                data_collection_priority=5,
-                sources=["Reuters", "BBC", "Al Jazeera"],
-            ),
-            CrisisEvent(
-                date="2023-04-15",
-                country_code="SD",
-                event_type="civil_war",
-                title="RSF-SAF Conflict Begins",
-                description="Rapid Support Forces clash with army, banking system collapses",
-                impact_severity=5,
-                expected_crypto_impact="increase",
-                data_collection_priority=5,
-                sources=["UN News", "Reuters", "BBC"],
-            ),
-        ])
+        events.extend(
+            [
+                CrisisEvent(
+                    date="2019-04-11",
+                    country_code="SD",
+                    event_type="coup",
+                    title="Omar al-Bashir Overthrown",
+                    description="30-year dictator overthrown by military, economic sanctions remain",
+                    impact_severity=4,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=4,
+                    sources=["BBC", "Reuters", "Al Jazeera"],
+                ),
+                CrisisEvent(
+                    date="2019-06-03",
+                    country_code="SD",
+                    event_type="political_crisis",
+                    title="Khartoum Massacre",
+                    description="Military attacks protesters, internet cut, banking disrupted",
+                    impact_severity=5,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=5,
+                    sources=["Human Rights Watch", "BBC"],
+                ),
+                CrisisEvent(
+                    date="2021-10-25",
+                    country_code="SD",
+                    event_type="coup",
+                    title="Military Coup",
+                    description="Military dissolves civilian government, banks closed, internet cut",
+                    impact_severity=5,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=5,
+                    sources=["Reuters", "BBC", "Al Jazeera"],
+                ),
+                CrisisEvent(
+                    date="2023-04-15",
+                    country_code="SD",
+                    event_type="civil_war",
+                    title="RSF-SAF Conflict Begins",
+                    description="Rapid Support Forces clash with army, banking system collapses",
+                    impact_severity=5,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=5,
+                    sources=["UN News", "Reuters", "BBC"],
+                ),
+            ]
+        )
 
         # AFGHANISTAN - Taliban Takeover and Sanctions
-        events.extend([
-            CrisisEvent(
-                date="2021-08-15",
-                country_code="AF",
-                event_type="regime_change",
-                title="Taliban Takeover",
-                description="Taliban captures Kabul, government collapses, mass exodus",
-                impact_severity=5,
-                expected_crypto_impact="increase",
-                data_collection_priority=5,
-                sources=["BBC", "Reuters", "CNN"],
-            ),
-            CrisisEvent(
-                date="2021-08-17",
-                country_code="AF",
-                event_type="sanctions",
-                title="Assets Frozen",
-                description="US freezes $9.5B in Afghan central bank assets",
-                impact_severity=5,
-                expected_crypto_impact="increase",
-                data_collection_priority=5,
-                sources=["Wall Street Journal", "Reuters"],
-            ),
-            CrisisEvent(
-                date="2021-12-22",
-                country_code="AF",
-                event_type="banking_crisis",
-                title="Banking System Collapse",
-                description="Banks limit withdrawals, cash shortage, humanitarian crisis",
-                impact_severity=5,
-                expected_crypto_impact="increase",
-                data_collection_priority=4,
-                sources=["UN News", "Reuters"],
-            ),
-        ])
+        events.extend(
+            [
+                CrisisEvent(
+                    date="2021-08-15",
+                    country_code="AF",
+                    event_type="regime_change",
+                    title="Taliban Takeover",
+                    description="Taliban captures Kabul, government collapses, mass exodus",
+                    impact_severity=5,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=5,
+                    sources=["BBC", "Reuters", "CNN"],
+                ),
+                CrisisEvent(
+                    date="2021-08-17",
+                    country_code="AF",
+                    event_type="sanctions",
+                    title="Assets Frozen",
+                    description="US freezes $9.5B in Afghan central bank assets",
+                    impact_severity=5,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=5,
+                    sources=["Wall Street Journal", "Reuters"],
+                ),
+                CrisisEvent(
+                    date="2021-12-22",
+                    country_code="AF",
+                    event_type="banking_crisis",
+                    title="Banking System Collapse",
+                    description="Banks limit withdrawals, cash shortage, humanitarian crisis",
+                    impact_severity=5,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=4,
+                    sources=["UN News", "Reuters"],
+                ),
+            ]
+        )
 
         # VENEZUELA - Hyperinflation and Political Crisis
-        events.extend([
-            CrisisEvent(
-                date="2019-01-23",
-                country_code="VE",
-                event_type="political_crisis",
-                title="Guaidó Declares Presidency",
-                description="Opposition leader declares himself president, international recognition",
-                impact_severity=4,
-                expected_crypto_impact="increase",
-                data_collection_priority=4,
-                sources=["Reuters", "BBC", "CNN"],
-            ),
-            CrisisEvent(
-                date="2019-03-07",
-                country_code="VE",
-                event_type="infrastructure_crisis",
-                title="Nationwide Blackout",
-                description="Massive power outage affects 70% of country for days",
-                impact_severity=4,
-                expected_crypto_impact="increase",
-                data_collection_priority=3,
-                sources=["Reuters", "BBC"],
-            ),
-            CrisisEvent(
-                date="2020-03-26",
-                country_code="VE",
-                event_type="sanctions",
-                title="US Sanctions Intensify",
-                description="Enhanced sanctions target Venezuelan oil industry",
-                impact_severity=4,
-                expected_crypto_impact="increase",
-                data_collection_priority=3,
-                sources=["US Treasury", "Reuters"],
-            ),
-            CrisisEvent(
-                date="2021-10-01",
-                country_code="VE",
-                event_type="currency_crisis",
-                title="Bolívar Redenomination",
-                description="Venezuela removes 6 zeros from currency due to inflation",
-                impact_severity=3,
-                expected_crypto_impact="increase",
-                data_collection_priority=3,
-                sources=["Reuters", "Bloomberg"],
-            ),
-        ])
+        events.extend(
+            [
+                CrisisEvent(
+                    date="2019-01-23",
+                    country_code="VE",
+                    event_type="political_crisis",
+                    title="Guaidó Declares Presidency",
+                    description="Opposition leader declares himself president, international recognition",
+                    impact_severity=4,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=4,
+                    sources=["Reuters", "BBC", "CNN"],
+                ),
+                CrisisEvent(
+                    date="2019-03-07",
+                    country_code="VE",
+                    event_type="infrastructure_crisis",
+                    title="Nationwide Blackout",
+                    description="Massive power outage affects 70% of country for days",
+                    impact_severity=4,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=3,
+                    sources=["Reuters", "BBC"],
+                ),
+                CrisisEvent(
+                    date="2020-03-26",
+                    country_code="VE",
+                    event_type="sanctions",
+                    title="US Sanctions Intensify",
+                    description="Enhanced sanctions target Venezuelan oil industry",
+                    impact_severity=4,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=3,
+                    sources=["US Treasury", "Reuters"],
+                ),
+                CrisisEvent(
+                    date="2021-10-01",
+                    country_code="VE",
+                    event_type="currency_crisis",
+                    title="Bolívar Redenomination",
+                    description="Venezuela removes 6 zeros from currency due to inflation",
+                    impact_severity=3,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=3,
+                    sources=["Reuters", "Bloomberg"],
+                ),
+            ]
+        )
 
         # NIGERIA - Crypto Bans and Currency Issues
-        events.extend([
-            CrisisEvent(
-                date="2021-02-05",
-                country_code="NG",
-                event_type="policy_change",
-                title="Central Bank Crypto Ban",
-                description="CBN prohibits banks from facilitating crypto transactions",
-                impact_severity=5,
-                expected_crypto_impact="increase",
-                data_collection_priority=5,
-                sources=["CBN", "Reuters", "BBC"],
-            ),
-            CrisisEvent(
-                date="2021-10-20",
-                country_code="NG",
-                event_type="political_crisis",
-                title="EndSARS Anniversary",
-                description="Protests anniversary, youth turn to crypto for financial freedom",
-                impact_severity=3,
-                expected_crypto_impact="increase",
-                data_collection_priority=3,
-                sources=["BBC", "Al Jazeera"],
-            ),
-            CrisisEvent(
-                date="2023-02-01",
-                country_code="NG",
-                event_type="currency_crisis",
-                title="Naira Scarcity Crisis",
-                description="Cash shortages due to new banknote rollout, people turn to digital alternatives",
-                impact_severity=4,
-                expected_crypto_impact="increase",
-                data_collection_priority=4,
-                sources=["Reuters", "Bloomberg", "Punch Nigeria"],
-            ),
-        ])
+        events.extend(
+            [
+                CrisisEvent(
+                    date="2021-02-05",
+                    country_code="NG",
+                    event_type="policy_change",
+                    title="Central Bank Crypto Ban",
+                    description="CBN prohibits banks from facilitating crypto transactions",
+                    impact_severity=5,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=5,
+                    sources=["CBN", "Reuters", "BBC"],
+                ),
+                CrisisEvent(
+                    date="2021-10-20",
+                    country_code="NG",
+                    event_type="political_crisis",
+                    title="EndSARS Anniversary",
+                    description="Protests anniversary, youth turn to crypto for financial freedom",
+                    impact_severity=3,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=3,
+                    sources=["BBC", "Al Jazeera"],
+                ),
+                CrisisEvent(
+                    date="2023-02-01",
+                    country_code="NG",
+                    event_type="currency_crisis",
+                    title="Naira Scarcity Crisis",
+                    description="Cash shortages due to new banknote rollout, people turn to digital alternatives",
+                    impact_severity=4,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=4,
+                    sources=["Reuters", "Bloomberg", "Punch Nigeria"],
+                ),
+            ]
+        )
 
         # ZIMBABWE - Recurring Inflation Crises
-        events.extend([
-            CrisisEvent(
-                date="2019-06-01",
-                country_code="ZW",
-                event_type="currency_crisis",
-                title="USD Usage Banned",
-                description="Government bans USD, enforces RTGS dollar usage",
-                impact_severity=4,
-                expected_crypto_impact="increase",
-                data_collection_priority=3,
-                sources=["Reuters", "Herald Zimbabwe"],
-            ),
-            CrisisEvent(
-                date="2020-03-01",
-                country_code="ZW",
-                event_type="currency_crisis",
-                title="Inflation Reaches 800%",
-                description="Hyperinflation returns, currency rapidly loses value",
-                impact_severity=5,
-                expected_crypto_impact="increase",
-                data_collection_priority=4,
-                sources=["Reuters", "Bloomberg", "ZIMSTAT"],
-            ),
-            CrisisEvent(
-                date="2020-03-30",
-                country_code="ZW",
-                event_type="infrastructure_crisis",
-                title="COVID-19 Lockdown",
-                description="Strict lockdown measures, informal economy disrupted",
-                impact_severity=3,
-                expected_crypto_impact="mixed",
-                data_collection_priority=2,
-                sources=["WHO", "Reuters"],
-            ),
-        ])
+        events.extend(
+            [
+                CrisisEvent(
+                    date="2019-06-01",
+                    country_code="ZW",
+                    event_type="currency_crisis",
+                    title="USD Usage Banned",
+                    description="Government bans USD, enforces RTGS dollar usage",
+                    impact_severity=4,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=3,
+                    sources=["Reuters", "Herald Zimbabwe"],
+                ),
+                CrisisEvent(
+                    date="2020-03-01",
+                    country_code="ZW",
+                    event_type="currency_crisis",
+                    title="Inflation Reaches 800%",
+                    description="Hyperinflation returns, currency rapidly loses value",
+                    impact_severity=5,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=4,
+                    sources=["Reuters", "Bloomberg", "ZIMSTAT"],
+                ),
+                CrisisEvent(
+                    date="2020-03-30",
+                    country_code="ZW",
+                    event_type="infrastructure_crisis",
+                    title="COVID-19 Lockdown",
+                    description="Strict lockdown measures, informal economy disrupted",
+                    impact_severity=3,
+                    expected_crypto_impact="mixed",
+                    data_collection_priority=2,
+                    sources=["WHO", "Reuters"],
+                ),
+            ]
+        )
 
         # ARGENTINA - Economic Crises and Capital Controls
-        events.extend([
-            CrisisEvent(
-                date="2019-08-12",
-                country_code="AR",
-                event_type="currency_crisis",
-                title="Peso Crashes 30%",
-                description="Primary election results trigger massive peso devaluation",
-                impact_severity=5,
-                expected_crypto_impact="increase",
-                data_collection_priority=5,
-                sources=["Reuters", "Bloomberg", "Financial Times"],
-            ),
-            CrisisEvent(
-                date="2019-10-27",
-                country_code="AR",
-                event_type="political_crisis",
-                title="Presidential Election",
-                description="Alberto Fernández wins, markets fear return to populist policies",
-                impact_severity=4,
-                expected_crypto_impact="increase",
-                data_collection_priority=3,
-                sources=["Reuters", "Bloomberg"],
-            ),
-            CrisisEvent(
-                date="2020-09-01",
-                country_code="AR",
-                event_type="policy_change",
-                title="Stricter Capital Controls",
-                description="Government tightens dollar purchase restrictions",
-                impact_severity=4,
-                expected_crypto_impact="increase",
-                data_collection_priority=4,
-                sources=["Central Bank of Argentina", "Reuters"],
-            ),
-            CrisisEvent(
-                date="2022-07-02",
-                country_code="AR",
-                event_type="political_crisis",
-                title="Economy Minister Resigns",
-                description="Martín Guzmán resigns amid economic turmoil",
-                impact_severity=3,
-                expected_crypto_impact="increase",
-                data_collection_priority=3,
-                sources=["Reuters", "Bloomberg", "La Nacion"],
-            ),
-        ])
+        events.extend(
+            [
+                CrisisEvent(
+                    date="2019-08-12",
+                    country_code="AR",
+                    event_type="currency_crisis",
+                    title="Peso Crashes 30%",
+                    description="Primary election results trigger massive peso devaluation",
+                    impact_severity=5,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=5,
+                    sources=["Reuters", "Bloomberg", "Financial Times"],
+                ),
+                CrisisEvent(
+                    date="2019-10-27",
+                    country_code="AR",
+                    event_type="political_crisis",
+                    title="Presidential Election",
+                    description="Alberto Fernández wins, markets fear return to populist policies",
+                    impact_severity=4,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=3,
+                    sources=["Reuters", "Bloomberg"],
+                ),
+                CrisisEvent(
+                    date="2020-09-01",
+                    country_code="AR",
+                    event_type="policy_change",
+                    title="Stricter Capital Controls",
+                    description="Government tightens dollar purchase restrictions",
+                    impact_severity=4,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=4,
+                    sources=["Central Bank of Argentina", "Reuters"],
+                ),
+                CrisisEvent(
+                    date="2022-07-02",
+                    country_code="AR",
+                    event_type="political_crisis",
+                    title="Economy Minister Resigns",
+                    description="Martín Guzmán resigns amid economic turmoil",
+                    impact_severity=3,
+                    expected_crypto_impact="increase",
+                    data_collection_priority=3,
+                    sources=["Reuters", "Bloomberg", "La Nacion"],
+                ),
+            ]
+        )
 
         return events
 
@@ -405,17 +416,19 @@ class CrisisTimelineManager:
         timeline_data = []
 
         for event in self.crisis_events:
-            timeline_data.append({
-                "date": event.date,
-                "country_code": event.country_code,
-                "event_type": event.event_type,
-                "title": event.title,
-                "description": event.description,
-                "impact_severity": event.impact_severity,
-                "expected_crypto_impact": event.expected_crypto_impact,
-                "data_collection_priority": event.data_collection_priority,
-                "sources": "; ".join(event.sources),
-            })
+            timeline_data.append(
+                {
+                    "date": event.date,
+                    "country_code": event.country_code,
+                    "event_type": event.event_type,
+                    "title": event.title,
+                    "description": event.description,
+                    "impact_severity": event.impact_severity,
+                    "expected_crypto_impact": event.expected_crypto_impact,
+                    "data_collection_priority": event.data_collection_priority,
+                    "sources": "; ".join(event.sources),
+                }
+            )
 
         # Save to analysis directory
         timeline_file = self.csv_manager.base_dir / "analysis" / "crisis_timeline.csv"
@@ -454,16 +467,18 @@ class CrisisTimelineManager:
 
             timeline_data = []
             for event in country_events:
-                timeline_data.append({
-                    "date": event.date,
-                    "event_type": event.event_type,
-                    "title": event.title,
-                    "description": event.description,
-                    "impact_severity": event.impact_severity,
-                    "expected_crypto_impact": event.expected_crypto_impact,
-                    "data_collection_priority": event.data_collection_priority,
-                    "sources": "; ".join(event.sources),
-                })
+                timeline_data.append(
+                    {
+                        "date": event.date,
+                        "event_type": event.event_type,
+                        "title": event.title,
+                        "description": event.description,
+                        "impact_severity": event.impact_severity,
+                        "expected_crypto_impact": event.expected_crypto_impact,
+                        "data_collection_priority": event.data_collection_priority,
+                        "sources": "; ".join(event.sources),
+                    }
+                )
 
             # Save individual country timeline
             country_file = (

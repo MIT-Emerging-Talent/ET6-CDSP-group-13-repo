@@ -38,9 +38,11 @@ class CryptoCompareScraper:
     def __init__(self):
         self.base_url = "https://min-api.cryptocompare.com/data"
         self.session = requests.Session()
-        self.session.headers.update({
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-        })
+        self.session.headers.update(
+            {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
+            }
+        )
         self.csv_manager = CSVDataManager()
 
         # Rate limiting for free tier (conservative approach)
@@ -276,13 +278,15 @@ class CryptoCompareScraper:
             for crypto, crypto_data in price_data.items():
                 timestamp = crypto_data["timestamp"]
                 for fiat, price in crypto_data["prices"].items():
-                    rows.append({
-                        "timestamp": timestamp,
-                        "cryptocurrency": crypto,
-                        "fiat_currency": fiat,
-                        "price": price,
-                        "source": "cryptocompare",
-                    })
+                    rows.append(
+                        {
+                            "timestamp": timestamp,
+                            "cryptocurrency": crypto,
+                            "fiat_currency": fiat,
+                            "price": price,
+                            "source": "cryptocompare",
+                        }
+                    )
 
             if rows:
                 df = pd.DataFrame(rows)
@@ -308,19 +312,21 @@ class CryptoCompareScraper:
             ):
                 rows = []
                 for daily_data in historical_data["historical_data"]:
-                    rows.append({
-                        "date": datetime.fromtimestamp(daily_data["time"]).strftime(
-                            "%Y-%m-%d"
-                        ),
-                        "crypto": crypto,
-                        "fiat": fiat,
-                        "open": daily_data["open"],
-                        "high": daily_data["high"],
-                        "low": daily_data["low"],
-                        "close": daily_data["close"],
-                        "volume": daily_data["volumeto"],
-                        "source": "cryptocompare",
-                    })
+                    rows.append(
+                        {
+                            "date": datetime.fromtimestamp(daily_data["time"]).strftime(
+                                "%Y-%m-%d"
+                            ),
+                            "crypto": crypto,
+                            "fiat": fiat,
+                            "open": daily_data["open"],
+                            "high": daily_data["high"],
+                            "low": daily_data["low"],
+                            "close": daily_data["close"],
+                            "volume": daily_data["volumeto"],
+                            "source": "cryptocompare",
+                        }
+                    )
 
                 if rows:
                     df = pd.DataFrame(rows)

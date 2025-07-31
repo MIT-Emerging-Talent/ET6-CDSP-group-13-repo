@@ -38,11 +38,13 @@ class BinanceP2PScraper:
     def __init__(self):
         self.base_url = "https://p2p.binance.com/bapi/c2c/v2/friendly/c2c/adv/search"
         self.session = requests.Session()
-        self.session.headers.update({
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-            "Accept": "application/json",
-            "Content-Type": "application/json",
-        })
+        self.session.headers.update(
+            {
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
+                "Accept": "application/json",
+                "Content-Type": "application/json",
+            }
+        )
         self.csv_manager = CSVDataManager()
 
     def get_ads(
