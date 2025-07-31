@@ -116,52 +116,56 @@ Our project follows a **structured data science workflow** with clear separation
 │   ├── 💡 ideas/               # Individual team member research proposals
 │   └── 📖 guide.md             # Domain expertise compilation
 ├── 📊 1_datasets/              # Comprehensive data collection hub
-│   ├── 🔧 crypto_data_collectors/  # Custom scrapers & utilities
-│   │   ├── scrapers/           # Binance P2P, exchange rate collectors
-│   │   ├── utils/              # Data management & country profiles
+│   ├── 🔧 crypto_data_collectors/  # [Custom scrapers & utilities](1_datasets/crypto_data_collectors/)
+│   │   ├── scrapers/           # [Binance P2P, exchange rate collectors](1_datasets/crypto_data_collectors/scrapers/)
+│   │   ├── utils/              # [Data management & country profiles](1_datasets/crypto_data_collectors/utils/)
 │   │   └── config/             # API keys & configuration
-│   ├── 📥 raw_datasets/        # Original unprocessed data
-│   └── ⚙️ processed/           # Clean, analysis-ready datasets
-├── 🔍 2_data_preparation/      # ETL pipelines & data validation
-├── 📈 3_data_exploration/      # Visualization & pattern discovery
-│   ├── 🎨 crypto_visualizations/  # Custom plotting engines
+│   ├── 📥 raw_datasets/        # [Original unprocessed data](1_datasets/raw_datasets/)
+│   └── ⚙️ processed/           # [Clean, analysis-ready datasets](1_datasets/processed/)
+├── 🔍 2_data_preparation/      # [ETL pipelines & data validation](2_data_preparation/)
+├── 📈 3_data_exploration/      # [Visualization & pattern discovery](3_data_exploration/)
+│   ├── 🎨 crypto_visualizations/  # [Custom plotting engines](3_data_exploration/crypto_visualizations/)
 │   └── 📊 *.png               # Key findings visualizations
-├── 🧮 4_data_analysis/         # Core analytical engines
-│   ├── 📈 comprehensive_analyzer.py   # Crisis correlation analysis
-│   ├── 💰 calculate_premiums.py       # P2P premium calculations
-│   ├── 🎯 phase3_coordinator.py       # Systematic data collection
+├── 🧮 4_data_analysis/         # [Core analytical engines](4_data_analysis/)
+│   ├── 📈 comprehensive_analyzer.py   # [Crisis correlation analysis](4_data_analysis/comprehensive_analyzer.py)
+│   ├── 💰 calculate_premiums.py       # [P2P premium calculations](4_data_analysis/calculate_premiums.py)
+│   ├── 🎯 phase3_coordinator.py       # [Systematic data collection](4_data_analysis/phase3_coordinator.py)
+│   ├── 🔬 crypto_analysis/     # [Advanced crisis impact analysis](4_data_analysis/crypto_analysis/)
 │   └── 📊 results/             # Analysis outputs & reports
-├── 💬 5_communication_strategy/ # Stakeholder engagement plans
-└── 🎤 6_final_presentation/    # Research dissemination materials
+├── 💬 5_communication_strategy/ # [Stakeholder engagement plans](5_communication_strategy/)
+└── 🎤 6_final_presentation/    # [Research dissemination materials](6_final_presentation/)
 ```
 
 ### 🔑 Key Components
 
 #### 📊 Data Collection & Management
 
-- **Custom Scrapers**: Real-time P2P cryptocurrency data from Binance
-- **Exchange Rate APIs**: Official currency conversion rates
-- **Crisis Timeline**: Documented political/economic events with severity scoring
-- **Country Profiles**: Financial system characteristics by region
+- **[Custom Scrapers](1_datasets/crypto_data_collectors/scrapers/)**: Real-time P2P cryptocurrency data from Binance
+- **[Exchange Rate APIs](1_datasets/crypto_data_collectors/utils/exchange_rates.py)**: Official currency conversion rates
+- **[Crisis Timeline](4_data_analysis/crypto_analysis/analysis/crisis_timeline.py)**: Documented political/economic events with severity scoring
+- **[Country Profiles](1_datasets/crypto_data_collectors/utils/country_profiles.py)**: Financial system characteristics by region
 
 #### 🧠 Analysis Engines
 
-- **Crisis Correlation Analyzer**: Quantifies crypto price movements during crises
-- **Premium Calculator**: Measures cryptocurrency premiums vs official exchange rates  
-- **Comprehensive Analyzer**: Multi-dimensional crisis impact assessment
-- **Phase 3 Coordinator**: Systematic data collection with clear research objectives
+- **[Crisis Correlation Analyzer](4_data_analysis/comprehensive_analyzer.py)**: Quantifies crypto price movements during crises
+- **[Premium Calculator](4_data_analysis/calculate_premiums.py)**: Measures cryptocurrency premiums vs official exchange rates  
+- **[Comprehensive Analyzer](4_data_analysis/crypto_analysis/)**: Multi-dimensional crisis impact assessment
+- **[Phase 3 Coordinator](4_data_analysis/phase3_coordinator.py)**: Systematic data collection with clear research objectives
 
 #### 📈 Visualization Suite
 
-- **Interactive Dashboards**: Real-time crisis monitoring
-- **Historical Trend Analysis**: Long-term crypto adoption patterns
-- **Comparative Analysis**: Cross-country crisis response visualization
+- **[Interactive Dashboards](3_data_exploration/crypto_visualizations/)**: Real-time crisis monitoring
+- **[Historical Trend Analysis](3_data_exploration/crypto_visualizations/generated_plots/)**: Long-term crypto adoption patterns
+- **[Comparative Analysis](3_data_exploration/)**: Cross-country crisis response visualization
+- **[Visualization Guide](3_data_exploration/crypto_visualizations/visualization_guide.md)**: Complete plotting system documentation
 
 ---
 
 ## 📊 Key Findings & Visualizations
 
-Our research has uncovered significant patterns in cryptocurrency adoption during crises. Here are some of our key discoveries:
+Our research has uncovered significant patterns in cryptocurrency adoption during crises. [View all visualizations →](3_data_exploration/)
+
+Here are some of our key discoveries:
 
 ### 🔥 Crisis Impact Analysis
 
@@ -174,6 +178,18 @@ Our research has uncovered significant patterns in cryptocurrency adoption durin
 ![All Exchanges Volume](3_data_exploration/usdt_volume_all_exchanges.png)
 
 **Discovery**: Multi-exchange analysis reveals coordinated increases in cryptocurrency trading activity across platforms during crisis periods, suggesting systematic flight to crypto assets.
+
+### 🎯 Comprehensive Crisis Analysis Dashboard
+
+![Comprehensive Dashboard](3_data_exploration/crypto_visualizations/generated_plots/comprehensive_dashboard.png)
+
+**Research Impact**: Our multi-dimensional analysis dashboard integrates crisis timelines, price correlations, and P2P premium data to provide a holistic view of cryptocurrency's role during financial emergencies. This visualization synthesizes data from our [crisis timeline analysis](4_data_analysis/crypto_analysis/analysis/crisis_timeline.py) with real-time market data.
+
+### 💰 P2P Premium Analysis
+
+![Premium Analysis](3_data_exploration/crypto_visualizations/generated_plots/premium_analysis.png)
+
+**Key Finding**: Premium calculations reveal how cryptocurrency prices deviate from official exchange rates during crises, serving as an early warning indicator for financial system stress. [View detailed premium calculations →](4_data_analysis/calculate_premiums.py)
 
 ### 📈 Regional Premium Analysis
 
@@ -247,10 +263,12 @@ python plot_results.py
 
 Our key datasets include:
 
-- **📈 Crisis Severity Data**: `1_datasets/processed/crisis_severity_2019-24.csv`
-- **💰 GDP Per Capita**: `1_datasets/processed/gdp_per_capita_2019_2024.csv`  
-- **🏦 Unbanked Population**: `1_datasets/processed/unbanked_pct_2021.csv`
-- **💱 P2P Trading Data**: `1_datasets/processed/crypto_p2p/`
+- **📈 Crisis Severity Data**: [`1_datasets/processed/crisis_severity_2019-24.csv`](1_datasets/processed/crisis_severity_2019-24.csv)
+- **💰 GDP Per Capita**: [`1_datasets/processed/gdp_per_capita_2019_2024.csv`](1_datasets/processed/gdp_per_capita_2019_2024.csv)  
+- **🏦 Unbanked Population**: [`1_datasets/processed/unbanked_pct_2021.csv`](1_datasets/processed/unbanked_pct_2021.csv)
+- **💱 P2P Trading Data**: [`1_datasets/processed/crypto_p2p/`](1_datasets/processed/crypto_p2p/)
+
+**[→ View all processed datasets](1_datasets/processed/)** | **[→ Explore raw data sources](1_datasets/raw_datasets/)**
 
 ### 🧪 Development Workflow
 
@@ -433,7 +451,7 @@ If you use our research, datasets, or methodology in your work, please cite:
 
 *Analyzing the role of cryptocurrency in fostering financial inclusion in crisis-affected countries.*
 
-[📊 View Analysis](4_data_analysis/) • [📈 Explore Data](1_datasets/) • [🎨 See Visualizations](3_data_exploration/) • [🤝 Contribute](CONTRIBUTING.md)
+[📊 View Analysis](4_data_analysis/) • [📈 Explore Data](1_datasets/) • [🎨 See Visualizations](3_data_exploration/) • [🔬 Crisis Analysis](4_data_analysis/crypto_analysis/) • [⚙️ Data Collectors](1_datasets/crypto_data_collectors/) • [📚 Domain Study](0_domain_study/) • [🤝 Contribute](CONTRIBUTING.md)
 
 **Made with ❤️ by the Data Mavericks Team**
 
