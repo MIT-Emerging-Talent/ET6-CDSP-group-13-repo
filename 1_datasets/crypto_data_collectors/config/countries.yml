@@ -1,0 +1,59 @@
+- country_code: "SD"
+  name: "Sudan"
+  fiat: "SDG"
+  stablecoins: ["USDT"]
+  expected_payment_methods: ["MTN", "Zain", "Bank Transfer"]
+  exchange_rate_sources: ["https://xe.com"]
+  p2p_platforms: ["binance", "okx", "paxful"]
+  start_date: "2019-01-01"
+  notes: "Conflict zone, high mobile money use, USD scarcity"
+
+- country_code: "AF"
+  name: "Afghanistan"
+  fiat: "AFN"
+  stablecoins: ["USDT", "DAI"]
+  expected_payment_methods: ["Cash in Kabul", "Afghanistan International Bank"]
+  exchange_rate_sources: ["https://openexchangerates.org"]
+  p2p_platforms: ["binance", "paxful"]
+  start_date: "2019-01-01"
+  notes: "Sanctions, isolation, reliance on USD and crypto for aid"
+
+- country_code: "VE"
+  name: "Venezuela"
+  fiat: "VES"
+  stablecoins: ["USDT", "BUSD"]
+  expected_payment_methods: ["Pago Movil", "Bank of Venezuela", "Mercantil"]
+  exchange_rate_sources: ["https://dolar.today", "https://xe.com"]
+  p2p_platforms: ["binance", "paxful", "okx"]
+  start_date: "2019-01-01"
+  notes: "Hyperinflation, informal USD and crypto economy"
+
+- country_code: "NG"
+  name: "Nigeria"
+  fiat: "NGN"
+  stablecoins: ["USDT", "BUSD", "DAI"]
+  expected_payment_methods: ["Bank Transfer", "Opay", "Kuda Bank"]
+  exchange_rate_sources: ["https://abokifx.com", "https://openexchangerates.org"]
+  p2p_platforms: ["binance", "okx", "paxful"]
+  start_date: "2019-01-01"
+  notes: "Crypto adoption despite government bans"
+
+- country_code: "ZW"
+  name: "Zimbabwe"
+  fiat: "ZWL"
+  stablecoins: ["USDT"]
+  expected_payment_methods: ["Ecocash", "Cash USD", "Bank Transfer"]
+  exchange_rate_sources: ["https://xe.com"]
+  p2p_platforms: ["binance", "paxful"]
+  start_date: "2019-01-01"
+  notes: "Recurring inflation, USD demand, informal markets"
+
+- country_code: "AR"
+  name: "Argentina"
+  fiat: "ARS"
+  stablecoins: ["USDT", "DAI"]
+  expected_payment_methods: ["Mercado Pago", "Bank Transfer"]
+  exchange_rate_sources: ["https://dolarhoy.com", "https://xe.com"]
+  p2p_platforms: ["binance", "okx", "paxful"]
+  start_date: "2019-01-01"
+  notes: "Crypto as inflation hedge and savings vehicle"

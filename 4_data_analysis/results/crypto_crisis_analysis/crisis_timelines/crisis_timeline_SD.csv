@@ -1,0 +1,5 @@
+date,event_type,title,description,impact_severity,expected_crypto_impact,data_collection_priority,sources
+2019-04-11,coup,Omar al-Bashir Overthrown,"30-year dictator overthrown by military, economic sanctions remain",4,increase,4,BBC; Reuters; Al Jazeera
+2019-06-03,political_crisis,Khartoum Massacre,"Military attacks protesters, internet cut, banking disrupted",5,increase,5,Human Rights Watch; BBC
+2021-10-25,coup,Military Coup,"Military dissolves civilian government, banks closed, internet cut",5,increase,5,Reuters; BBC; Al Jazeera
+2023-04-15,civil_war,RSF-SAF Conflict Begins,"Rapid Support Forces clash with army, banking system collapses",5,increase,5,UN News; Reuters; BBC

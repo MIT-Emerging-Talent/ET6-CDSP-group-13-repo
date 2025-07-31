@@ -1,0 +1,19 @@
+# Core dependencies for cryptocurrency premium analysis project
+# Only packages actually used in the codebase
+
+# HTTP requests and web scraping
+requests>=2.31.0         # API calls to exchanges and data sources
+beautifulsoup4>=4.12.0   # HTML parsing for web scraping
+
+# Data manipulation and analysis
+pandas>=2.1.0            # Data processing and CSV management
+yfinance>=2.0.0          # Yahoo Finance historical data
+
+# Visualization
+matplotlib>=3.7.0        # Plotting and data visualization
+seaborn>=0.12.0          # Statistical visualizations
+
+# Configuration and parsing
+pyyaml>=6.0              # YAML configuration files (countries.yml)
+python-dateutil>=2.8.2   # Date parsing and manipulation
+lxml>=4.9.0              # XML/HTML parsing backend for BeautifulSoup

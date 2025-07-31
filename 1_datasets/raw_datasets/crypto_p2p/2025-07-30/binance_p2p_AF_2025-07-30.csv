@@ -1,0 +1,7 @@
+platform,timestamp,asset,fiat,price,min_amount,max_amount,available_amount,trade_type,country_code,payment_methods,advertiser_name,completion_rate,order_count,ad_id,premium_pct,official_rate,collection_id
+binance,2025-07-30T12:53:50.181903Z,USDT,AFN,82.58,450.0,455.0,100.0,BUY,AF,"[""Papara"", ""Bank Transfer""]",TurboTrustXchange,1.0,755,13776939295193899008,,,collection_20250730_145349
+binance,2025-07-30T12:53:51.718825Z,USDT,AFN,57.0,450.0,114000.0,2000.0,SELL,AF,"[""Papara"", ""Azizi Bank"", ""Bank Transfer""]",GlobalPaySolutions24,0.955,293,12780666324355125248,,,collection_20250730_145349
+binance,2025-07-30T12:53:51.718825Z,USDT,AFN,56.43,460.0,465.0,100.0,SELL,AF,"[""Azizi Bank""]",TurboTrustXchange,1.0,755,12779988339053617152,,,collection_20250730_145349
+binance,2025-07-30T12:53:51.718825Z,USDT,AFN,56.18,1000.0,500000.0,500000.0,SELL,AF,"[""Bank Transfer"", ""Azizi Bank""]",USDT_KING_payball,0.982,475,12772948655047131136,,,collection_20250730_145349
+binance,2025-07-30T12:53:51.718825Z,USDT,AFN,55.74,455.0,460.0,100.0,SELL,AF,"[""CIH Bank""]",TurboTrustXchange,1.0,755,12779988187224592384,,,collection_20250730_145349
+binance,2025-07-30T12:53:51.718825Z,USDT,AFN,55.05,450.0,455.0,100.0,SELL,AF,"[""Papara""]",TurboTrustXchange,1.0,755,12779987967309586432,,,collection_20250730_145349

@@ -1,0 +1,5 @@
+country_code,fiat,total_ads,buy_ads,sell_ads,avg_price,median_price,official_rate,premium_avg,premium_median
+AF,AFN,6,1,5,60.49666666666667,56.305,68.92,-12.22,-18.3
+AR,ARS,200,100,100,1304.1866,1306.99,1296.67,0.58,0.8
+SD,SDG,107,7,100,2941.2618691588787,2943.08,449.36,554.54,554.95
+VE,VES,200,100,100,165.00891,165.285,123.87,33.21,33.43

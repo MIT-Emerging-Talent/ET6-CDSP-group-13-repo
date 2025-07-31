@@ -1,0 +1,55 @@
+{
+  "analysis_timestamp": "20250730_222809",
+  "data_sources": {
+    "p2p_ads_analyzed": 513,
+    "countries_covered": 4,
+    "historical_data_span": "10+ years",
+    "crisis_events_analyzed": 21
+  },
+  "key_findings": {
+    "highest_premium": {
+      "country": "SD",
+      "premium_pct": 554.54,
+      "interpretation": "Crisis-driven currency flight"
+    },
+    "lowest_premium": {
+      "country": "AF",
+      "premium_pct": -12.22,
+      "interpretation": "Stable market conditions"
+    },
+    "high_volatility_events": [
+      {
+        "date": "2020-03-01",
+        "country": "ZW",
+        "event": "Inflation Reaches 800%",
+        "btc_volatility": 20.973987389655267
+      },
+      {
+        "date": "2019-06-01",
+        "country": "ZW",
+        "event": "USD Usage Banned",
+        "btc_volatility": 20.167678116632317
+      },
+      {
+        "date": "2019-06-03",
+        "country": "SD",
+        "event": "Khartoum Massacre",
+        "btc_volatility": 19.74294669892521
+      }
+    ]
+  },
+  "crisis_indicators": {
+    "high_risk_countries": [
+      "AF",
+      "SD"
+    ],
+    "market_patterns": {
+      "AF": "heavy_sell_pressure",
+      "SD": "heavy_sell_pressure"
+    }
+  },
+  "recommendations": [
+    "Monitor SD for ongoing crisis impact",
+    "Heavy sell pressure indicates potential capital flight in crisis-affected regions"
+  ]
+}

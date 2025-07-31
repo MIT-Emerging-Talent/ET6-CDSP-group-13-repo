@@ -1,0 +1,4 @@
+date,event_type,title,description,impact_severity,expected_crypto_impact,data_collection_priority,sources
+2021-08-15,regime_change,Taliban Takeover,"Taliban captures Kabul, government collapses, mass exodus",5,increase,5,BBC; Reuters; CNN
+2021-08-17,sanctions,Assets Frozen,US freezes $9.5B in Afghan central bank assets,5,increase,5,Wall Street Journal; Reuters
+2021-12-22,banking_crisis,Banking System Collapse,"Banks limit withdrawals, cash shortage, humanitarian crisis",5,increase,4,UN News; Reuters

@@ -1,0 +1,5 @@
+date,event_type,title,description,impact_severity,expected_crypto_impact,data_collection_priority,sources
+2019-01-23,political_crisis,Guaidó Declares Presidency,"Opposition leader declares himself president, international recognition",4,increase,4,Reuters; BBC; CNN
+2019-03-07,infrastructure_crisis,Nationwide Blackout,Massive power outage affects 70% of country for days,4,increase,3,Reuters; BBC
+2020-03-26,sanctions,US Sanctions Intensify,Enhanced sanctions target Venezuelan oil industry,4,increase,3,US Treasury; Reuters
+2021-10-01,currency_crisis,Bolívar Redenomination,Venezuela removes 6 zeros from currency due to inflation,3,increase,3,Reuters; Bloomberg
