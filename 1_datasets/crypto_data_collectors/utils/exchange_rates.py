@@ -21,12 +21,13 @@ Author: Clement MUGISHA
 License: MIT
 """
 
-import requests
+import os
+import sys
 import time
 from datetime import datetime, timedelta
-from typing import List, Dict, Any
-import sys
-import os
+from typing import Any, Dict, List
+
+import requests
 
 # Add project root to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))

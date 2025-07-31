@@ -15,18 +15,19 @@ Author: Clement MUGISHA
 License: MIT
 """
 
-import requests
 import json
+import os
+import sys
 import time
 from datetime import datetime
-from typing import List, Dict, Any
-import sys
-import os
+from typing import Any, Dict, List
+
+import requests
 
 # Add project root to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from utils.country_profiles import list_supported_countries, get_profile_by_country_code
+from utils.country_profiles import get_profile_by_country_code, list_supported_countries
 from utils.csv_data_manager import CSVDataManager
 
 

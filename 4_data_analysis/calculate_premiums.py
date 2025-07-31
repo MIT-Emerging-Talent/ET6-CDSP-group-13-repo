@@ -8,9 +8,10 @@ to demonstrate the immediate impact we can measure.
 Author: Clement MUGISHA
 """
 
-import pandas as pd
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
+
+import pandas as pd
 
 # Direct imports from utility files
 CSVDataManager = None

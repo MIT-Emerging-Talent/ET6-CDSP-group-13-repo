@@ -27,8 +27,8 @@ def main():
 
     try:
         # Load visualization engine using absolute path
-        import os
         import importlib.util
+        import os
 
         viz_path = os.path.join(
             os.path.dirname(os.path.dirname(__file__)),

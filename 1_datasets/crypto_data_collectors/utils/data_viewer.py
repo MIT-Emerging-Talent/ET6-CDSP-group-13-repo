@@ -12,13 +12,14 @@ Author: Clement MUGISHA
 License: MIT
 """
 
-import sys
 import os
+import sys
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from utils.csv_data_manager import CSVDataManager
 import json
+
+from utils.csv_data_manager import CSVDataManager
 
 
 def main():

@@ -22,21 +22,22 @@ Author: Clement MUGISHA
 License: MIT
 """
 
-import sys
 import os
-from datetime import datetime
-from typing import List, Dict, Any
+import sys
 import time
+from datetime import datetime
+from typing import Any, Dict, List
 
 # Add project root to path for imports
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from utils.country_profiles import list_supported_countries, get_profile_by_country_code
-from utils.csv_data_manager import CSVDataManager
-from utils.exchange_rates import ExchangeRateCollector
 from scrapers.binance_p2p import BinanceP2PScraper
 from scrapers.platforms.coingecko_free import CoinGeckoScraper
 from scrapers.platforms.cryptocompare_free import CryptoCompareScraper
+from utils.country_profiles import get_profile_by_country_code, list_supported_countries
+from utils.csv_data_manager import CSVDataManager
+from utils.exchange_rates import ExchangeRateCollector
+
 # Removed non-working scrapers:
 # from scrapers.platforms.okx_p2p import OKXPPScraper
 # from scrapers.platforms.paxful_historical import PaxfulHistoricalScraper

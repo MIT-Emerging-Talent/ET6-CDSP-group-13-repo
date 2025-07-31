@@ -2,13 +2,14 @@
 Test script for country_profiles.py functions
 """
 
+import json
+
 from utils.country_profiles import (
-    load_profiles,
     get_profile_by_country_code,
     get_profile_by_country_name,
     list_supported_countries,
+    load_profiles,
 )
-import json
 
 
 def test_all_functions():

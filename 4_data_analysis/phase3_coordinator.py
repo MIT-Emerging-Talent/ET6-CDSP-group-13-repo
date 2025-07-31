@@ -9,10 +9,11 @@ cryptocurrency data for correlation with crisis events. Every data point collect
 has a clear purpose in answering our research questions.
 """
 
+import os
 from datetime import datetime, timedelta
 from pathlib import Path
+
 import pandas as pd
-import os
 
 
 class Phase3DataCoordinator:

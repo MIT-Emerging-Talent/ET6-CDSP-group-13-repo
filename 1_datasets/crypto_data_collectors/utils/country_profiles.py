@@ -35,8 +35,9 @@ Author: Clement MUGISHA
 License: MIT
 """
 
-import yaml
 from functools import lru_cache
+
+import yaml
 
 
 @lru_cache(maxsize=1)

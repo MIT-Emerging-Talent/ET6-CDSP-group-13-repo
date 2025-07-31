@@ -24,8 +24,8 @@ data/
 Author: Clement MUGISHA
 """
 
-from pathlib import Path
 from datetime import datetime
+from pathlib import Path
 
 
 def validate_data_organization():
