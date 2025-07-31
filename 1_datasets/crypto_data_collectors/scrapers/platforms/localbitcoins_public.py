@@ -24,9 +24,7 @@ from typing import Any, Dict, List
 import requests
 
 # Add project root to path
-sys.path.append(
-    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-)
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from utils.country_profiles import load_profiles
 from utils.csv_data_manager import CSVDataManager
@@ -47,9 +45,7 @@ class LocalBitcoinsPublicScraper:
         )
         self.csv_manager = CSVDataManager()
 
-    def get_country_ads(
-        self, country_code: str, trade_type: str = "both"
-    ) -> List[Dict[str, Any]]:
+    def get_country_ads(self, country_code: str, trade_type: str = "both") -> List[Dict[str, Any]]:
         """
         Get P2P Bitcoin ads for a specific country.
 
@@ -78,9 +74,7 @@ class LocalBitcoinsPublicScraper:
 
         return all_ads
 
-    def _get_ads_by_type(
-        self, country_code: str, trade_type: str
-    ) -> List[Dict[str, Any]]:
+    def _get_ads_by_type(self, country_code: str, trade_type: str) -> List[Dict[str, Any]]:
         """Get ads for specific trade type."""
 
         if trade_type == "buy":
@@ -89,9 +83,7 @@ class LocalBitcoinsPublicScraper:
             url = f"{self.base_url}/sell-bitcoins-online/{country_code}/.json"
 
         try:
-            print(
-                f"🔍 Fetching {trade_type.upper()} ads from LocalBitcoins for {country_code}..."
-            )
+            print(f"🔍 Fetching {trade_type.upper()} ads from LocalBitcoins for {country_code}...")
             response = self.session.get(url, timeout=15)
             response.raise_for_status()
 
@@ -204,9 +196,7 @@ class LocalBitcoinsPublicScraper:
                 print(f"   💰 Average price: {avg_price:.2f} {ads[0]['fiat']}")
 
                 # Payment method analysis
-                payment_methods = [
-                    ad["payment_method"] for ad in ads if ad["payment_method"]
-                ]
+                payment_methods = [ad["payment_method"] for ad in ads if ad["payment_method"]]
                 unique_methods = set(payment_methods)
                 print(f"   🏦 Payment methods: {len(unique_methods)} unique")
                 if unique_methods:
@@ -280,9 +270,7 @@ class LocalBitcoinsPublicScraper:
                 time.sleep(2)
 
             except Exception as e:
-                error_msg = (
-                    f"Error collecting {country.get('country_code', 'unknown')}: {e}"
-                )
+                error_msg = f"Error collecting {country.get('country_code', 'unknown')}: {e}"
                 print(f"❌ {error_msg}")
                 results["errors"].append(error_msg)
 

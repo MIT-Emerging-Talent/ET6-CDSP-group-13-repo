@@ -57,9 +57,7 @@ def main():
             print("   • Historical Correlation Plots")
             print("   • Market Structure Analysis")
             print("   • Comprehensive Dashboard")
-            print(
-                "\n💡 Tip: Open the plots directory to view all generated visualizations"
-            )
+            print("\n💡 Tip: Open the plots directory to view all generated visualizations")
         else:
             print("\n❌ FAILED! Some visualizations could not be generated")
             print("💡 Make sure analysis data is available in the data directory")

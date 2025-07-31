@@ -78,9 +78,7 @@ class DataCollectionOrchestrator:
         print(f"📊 Available P2P platforms: {list(self.scrapers.keys())}")
         print(f"📈 Available context APIs: {list(self.context_scrapers.keys())}")
 
-    def collect_comprehensive_snapshot(
-        self, countries: List[str] = None
-    ) -> Dict[str, Any]:
+    def collect_comprehensive_snapshot(self, countries: List[str] = None) -> Dict[str, Any]:
         """
         Collect comprehensive data including P2P data and market context.
 
@@ -184,9 +182,7 @@ class DataCollectionOrchestrator:
             for country_code in countries:
                 try:
                     country_profile = get_profile_by_country_code(country_code)
-                    print(
-                        f"\n📍 {platform_name}: {country_profile['name']} ({country_code})"
-                    )
+                    print(f"\n📍 {platform_name}: {country_profile['name']} ({country_code})")
 
                     # Collect data from this platform for this country
                     if hasattr(scraper, "collect_country_data"):
@@ -210,9 +206,7 @@ class DataCollectionOrchestrator:
             }
             collection_summary["total_ads_collected"] += platform_ads
 
-            print(
-                f"✅ {platform_name}: {platform_ads} ads from {platform_countries} countries"
-            )
+            print(f"✅ {platform_name}: {platform_ads} ads from {platform_countries} countries")
 
             # Rate limiting between platforms
             time.sleep(2)
@@ -331,9 +325,7 @@ class DataCollectionOrchestrator:
 
         return crisis_summary
 
-    def run_comprehensive_collection(
-        self, include_historical: bool = False
-    ) -> Dict[str, Any]:
+    def run_comprehensive_collection(self, include_historical: bool = False) -> Dict[str, Any]:
         """
         Run comprehensive data collection across all countries and platforms.
 
@@ -370,9 +362,7 @@ class DataCollectionOrchestrator:
         try:
             snapshot_results = self.collect_current_snapshot()
             comprehensive_summary["current_snapshot"] = snapshot_results
-            comprehensive_summary["total_ads_collected"] += snapshot_results[
-                "total_ads_collected"
-            ]
+            comprehensive_summary["total_ads_collected"] += snapshot_results["total_ads_collected"]
         except Exception as e:
             error_msg = f"Current snapshot failed: {e}"
             print(f"❌ {error_msg}")
@@ -393,15 +383,11 @@ class DataCollectionOrchestrator:
 
             for country_code, start_date, end_date in priority_crises:
                 try:
-                    print(
-                        f"\n🎯 Priority crisis: {country_code} ({start_date} to {end_date})"
-                    )
+                    print(f"\n🎯 Priority crisis: {country_code} ({start_date} to {end_date})")
                     crisis_results = self.collect_crisis_period_data(
                         country_code, start_date, end_date
                     )
-                    comprehensive_summary["historical_collections"].append(
-                        crisis_results
-                    )
+                    comprehensive_summary["historical_collections"].append(crisis_results)
                     comprehensive_summary["total_ads_collected"] += crisis_results[
                         "total_historical_ads"
                     ]
@@ -452,9 +438,7 @@ def main():
         print("=" * 60)
 
         # Use comprehensive collection (includes P2P + market context - NO DUPLICATION)
-        print(
-            f"\n🔍 Running comprehensive collection for all {len(country_codes)} countries..."
-        )
+        print(f"\n🔍 Running comprehensive collection for all {len(country_codes)} countries...")
         results = orchestrator.collect_comprehensive_snapshot(country_codes)
 
         print("\n📊 COMPREHENSIVE COLLECTION RESULTS:")
@@ -473,15 +457,9 @@ def main():
 
         # Show success summary
         if results["total_ads_collected"] > 0:
-            print(
-                f"\n✅ SUCCESS: Collected {results['total_ads_collected']} total P2P ads"
-            )
-            print(
-                f"� Plus market context from {len(results.get('market_context', {}))} APIs"
-            )
-            print(
-                f"�💾 Data saved to: data/raw/{orchestrator.today}/ and data/analysis/"
-            )
+            print(f"\n✅ SUCCESS: Collected {results['total_ads_collected']} total P2P ads")
+            print(f"� Plus market context from {len(results.get('market_context', {}))} APIs")
+            print(f"�💾 Data saved to: data/raw/{orchestrator.today}/ and data/analysis/")
         else:
             print("\n⚠️  No P2P ads collected - check country currency support")
 

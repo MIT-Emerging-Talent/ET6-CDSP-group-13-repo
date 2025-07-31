@@ -36,9 +36,9 @@ def main():
     log_df = csv_manager.get_collection_log()
     if not log_df.empty:
         print(
-            log_df[
-                ["timestamp", "platform", "country_name", "ads_collected", "status"]
-            ].to_string(index=False)
+            log_df[["timestamp", "platform", "country_name", "ads_collected", "status"]].to_string(
+                index=False
+            )
         )
     else:
         print("No collection history found.")

@@ -27,9 +27,7 @@ def test_all_functions():
     countries = list_supported_countries()
     print(f"   ✅ Found {len(countries)} countries:")
     for country in countries:
-        print(
-            f"      • {country['country_code']} - {country['name']} ({country['fiat']})"
-        )
+        print(f"      • {country['country_code']} - {country['name']} ({country['fiat']})")
 
     # Test 3: get_profile_by_country_code
     print("\n3. Testing get_profile_by_country_code():")

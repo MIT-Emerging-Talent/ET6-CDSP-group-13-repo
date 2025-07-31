@@ -45,26 +45,16 @@ try:
     # Import CSV data manager from the actual file location
     project_root = Path(__file__).parent.parent
     csv_manager_path = (
-        project_root
-        / "1_datasets"
-        / "crypto_data_collectors"
-        / "utils"
-        / "csv_data_manager.py"
+        project_root / "1_datasets" / "crypto_data_collectors" / "utils" / "csv_data_manager.py"
     )
     exchange_rates_path = (
-        project_root
-        / "1_datasets"
-        / "crypto_data_collectors"
-        / "utils"
-        / "exchange_rates.py"
+        project_root / "1_datasets" / "crypto_data_collectors" / "utils" / "exchange_rates.py"
     )
 
     if csv_manager_path.exists():
         import importlib.util
 
-        spec = importlib.util.spec_from_file_location(
-            "csv_data_manager", csv_manager_path
-        )
+        spec = importlib.util.spec_from_file_location("csv_data_manager", csv_manager_path)
         csv_module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(csv_module)
         CSVDataManager = csv_module.CSVDataManager
@@ -75,9 +65,7 @@ try:
     if exchange_rates_path.exists():
         import importlib.util
 
-        spec = importlib.util.spec_from_file_location(
-            "exchange_rates", exchange_rates_path
-        )
+        spec = importlib.util.spec_from_file_location("exchange_rates", exchange_rates_path)
         exchange_module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(exchange_module)
         ExchangeRateCollector = exchange_module.ExchangeRateCollector
@@ -130,10 +118,7 @@ class CrisisImpactAnalyzer:
         self.data_root = self.project_root / "1_datasets"
         self.results_root = Path(__file__).parent / "results"
         self.viz_root = (
-            self.project_root
-            / "3_data_exploration"
-            / "crypto_visualizations"
-            / "generated_plots"
+            self.project_root / "3_data_exploration" / "crypto_visualizations" / "generated_plots"
         )
 
         # Ensure all output directories exist
@@ -195,9 +180,7 @@ class CrisisImpactAnalyzer:
             }
 
             # Market pattern analysis
-            sell_ratio = (
-                stats["sell_ads"] / stats["total_ads"] if stats["total_ads"] > 0 else 0
-            )
+            sell_ratio = stats["sell_ads"] / stats["total_ads"] if stats["total_ads"] > 0 else 0
             if sell_ratio > 0.8:
                 stats["market_pattern"] = "heavy_sell_pressure"
                 stats["crisis_indicator"] = "high"
@@ -235,18 +218,9 @@ class CrisisImpactAnalyzer:
 
         # Load historical price data
         historical_files = {
-            "BTC": self.results_root
-            / "historical"
-            / "yahoo_finance"
-            / "BTC_USD_historical.csv",
-            "ETH": self.results_root
-            / "historical"
-            / "yahoo_finance"
-            / "ETH_USD_historical.csv",
-            "USDT": self.results_root
-            / "historical"
-            / "yahoo_finance"
-            / "USDT_USD_historical.csv",
+            "BTC": self.results_root / "historical" / "yahoo_finance" / "BTC_USD_historical.csv",
+            "ETH": self.results_root / "historical" / "yahoo_finance" / "ETH_USD_historical.csv",
+            "USDT": self.results_root / "historical" / "yahoo_finance" / "USDT_USD_historical.csv",
         }
 
         historical_data = {}
@@ -294,27 +268,19 @@ class CrisisImpactAnalyzer:
                 data_tz_aware["Date"] = pd.to_datetime(data_tz_aware["Date"], utc=True)
 
                 period_data = data_tz_aware[
-                    (data_tz_aware["Date"] >= start_date)
-                    & (data_tz_aware["Date"] <= end_date)
+                    (data_tz_aware["Date"] >= start_date) & (data_tz_aware["Date"] <= end_date)
                 ]
 
                 if len(period_data) > 0:
                     # Calculate volatility and price change
                     pre_crisis = period_data[period_data["Date"] < event_date]["Close"]
-                    post_crisis = period_data[period_data["Date"] >= event_date][
-                        "Close"
-                    ]
+                    post_crisis = period_data[period_data["Date"] >= event_date]["Close"]
 
                     if len(pre_crisis) > 0 and len(post_crisis) > 0:
                         price_change = (
-                            (post_crisis.iloc[0] - pre_crisis.iloc[-1])
-                            / pre_crisis.iloc[-1]
+                            (post_crisis.iloc[0] - pre_crisis.iloc[-1]) / pre_crisis.iloc[-1]
                         ) * 100
-                        volatility = (
-                            period_data["Close"].std()
-                            / period_data["Close"].mean()
-                            * 100
-                        )
+                        volatility = period_data["Close"].std() / period_data["Close"].mean() * 100
 
                         event_analysis[f"{crypto}_price_change_pct"] = price_change
                         event_analysis[f"{crypto}_volatility"] = volatility
@@ -390,11 +356,9 @@ class CrisisImpactAnalyzer:
                 report["crisis_indicators"]["high_risk_countries"] = crisis_countries[
                     "country_code"
                 ].tolist()
-                report["crisis_indicators"]["market_patterns"] = (
-                    crisis_countries.set_index("country_code")[
-                        "market_pattern"
-                    ].to_dict()
-                )
+                report["crisis_indicators"]["market_patterns"] = crisis_countries.set_index(
+                    "country_code"
+                )["market_pattern"].to_dict()
 
         # Historical correlation insights
         if correlation_data is not None and not correlation_data.empty:
@@ -422,9 +386,7 @@ class CrisisImpactAnalyzer:
                 )
 
         if market_data is not None:
-            unbalanced_markets = market_data[
-                market_data["market_pattern"] != "balanced"
-            ]
+            unbalanced_markets = market_data[market_data["market_pattern"] != "balanced"]
             if len(unbalanced_markets) > 0:
                 report["recommendations"].append(
                     "Heavy sell pressure indicates potential capital flight in crisis-affected regions"
@@ -482,9 +444,7 @@ class CrisisImpactAnalyzer:
     def generate_visualizations(self):
         """Generate comprehensive visualizations from analysis results."""
         if not PLOTTING_AVAILABLE:
-            print(
-                "⚠️ Plotting functionality not available. Install matplotlib and seaborn."
-            )
+            print("⚠️ Plotting functionality not available. Install matplotlib and seaborn.")
             return False
 
         print("\n🎨 GENERATING VISUALIZATIONS")
@@ -554,9 +514,7 @@ class CrisisImpactAnalyzer:
             "market_data": market_results,
             "correlation_data": correlation_results,
             "comprehensive_report": final_report,
-            "plots_generated": include_plots
-            and "plot_success" in locals()
-            and plot_success,
+            "plots_generated": include_plots and "plot_success" in locals() and plot_success,
         }
 
 

@@ -17,9 +17,7 @@ def find_header_row(df, possible_severity_cols, max_rows_to_check=5):
     Assumes df is loaded with header=None.
     """
     for i in range(min(max_rows_to_check, len(df))):
-        row_values = (
-            df.iloc[i].astype(str).str.strip()
-        )  # Get row values and strip whitespace
+        row_values = df.iloc[i].astype(str).str.strip()  # Get row values and strip whitespace
 
         # Check for 'ISO3'
         iso3_found = "ISO3" in row_values.values
@@ -87,9 +85,7 @@ def process_inform_severity_data(raw_data_path, processed_data_path):
 
                 if header_row_idx != -1:
                     # Re-load the sheet with the identified header row
-                    df = pd.read_excel(
-                        file_path, sheet_name=sheet_name, header=header_row_idx
-                    )
+                    df = pd.read_excel(file_path, sheet_name=sheet_name, header=header_row_idx)
                     print(
                         f"Info: Found sheet '{sheet_name}' with header at row "
                         f"{header_row_idx + 1} in {os.path.basename(file_path)}."
@@ -109,9 +105,7 @@ def process_inform_severity_data(raw_data_path, processed_data_path):
                 continue
             except ValueError:  # Handle general ValueError (e.g., sheet not found)
                 continue
-            except (
-                Exception
-            ) as e:  # Catch any other unexpected errors during read_excel
+            except Exception as e:  # Catch any other unexpected errors during read_excel
                 print(
                     f"Error reading sheet '{sheet_name}' from "
                     f"{os.path.basename(file_path)}: {e}. Trying next sheet."
@@ -171,14 +165,10 @@ def process_inform_severity_data(raw_data_path, processed_data_path):
     initial_rows = len(combined_df)
     combined_df.dropna(subset=["ISO3"], inplace=True)
     if len(combined_df) < initial_rows:
-        print(
-            f"Dropped {initial_rows - len(combined_df)} rows due to missing ISO3 codes."
-        )
+        print(f"Dropped {initial_rows - len(combined_df)} rows due to missing ISO3 codes.")
 
     # Collapse to one row per country-year, taking the maximum Severity AI
-    processed_df = (
-        combined_df.groupby(["ISO3", "Year"])["severity_score"].max().reset_index()
-    )
+    processed_df = combined_df.groupby(["ISO3", "Year"])["severity_score"].max().reset_index()
 
     # Add crisis_flag
     processed_df["crisis_flag"] = (processed_df["severity_score"] >= 2.5).astype(int)
@@ -209,10 +199,7 @@ def process_inform_severity_data(raw_data_path, processed_data_path):
     print(f"Data processing complete. Saved to: {output_path}")
     print("\nQuick QA Checklist Results:")
     print(f"- Missing ISO3 codes: {processed_df['ISO3'].isnull().sum()}")
-    print(
-        f"- Duplicate ISO3-Year rows: "
-        f"{processed_df.duplicated(subset=['ISO3', 'Year']).sum()}"
-    )
+    print(f"- Duplicate ISO3-Year rows: {processed_df.duplicated(subset=['ISO3', 'Year']).sum()}")
     print(
         f"- Severity Score min: {processed_df['severity_score'].min()}, "
         f"max: {processed_df['severity_score'].max()}"

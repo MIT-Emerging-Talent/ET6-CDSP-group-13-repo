@@ -63,9 +63,7 @@ class ExchangeRateCollector:
                 "current": "http://data.fixer.io/api/latest",
                 "historical": "http://data.fixer.io/api/{date}",
             },
-            "exchangerate_api": {
-                "current": "https://api.exchangerate-api.com/v4/latest/USD"
-            },
+            "exchangerate_api": {"current": "https://api.exchangerate-api.com/v4/latest/USD"},
         }
 
         self.session = requests.Session()
@@ -112,9 +110,7 @@ class ExchangeRateCollector:
 
         return rates
 
-    def get_historical_rates(
-        self, date: str, base_currency: str = "USD"
-    ) -> Dict[str, float]:
+    def get_historical_rates(self, date: str, base_currency: str = "USD") -> Dict[str, float]:
         """
         Get historical exchange rates for a specific date.
 
@@ -324,9 +320,7 @@ class ExchangeRateCollector:
                     "collection_id": collection_id,
                 }
                 rates_data.append(rate_record)
-                print(
-                    f"💱 {country['country_code']}: 1 USD = {current_rates[fiat]} {fiat}"
-                )
+                print(f"💱 {country['country_code']}: 1 USD = {current_rates[fiat]} {fiat}")
 
         # Save to CSV
         if rates_data:

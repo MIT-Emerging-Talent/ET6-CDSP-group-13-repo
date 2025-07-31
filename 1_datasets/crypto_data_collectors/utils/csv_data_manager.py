@@ -247,13 +247,9 @@ class CSVDataManager:
         log_file = self.metadata_dir / "collection_log.csv"
         self._append_csv(log_file, [log_entry], self.collection_headers)
 
-        print(
-            f"📝 Logged collection run: {ads_collected} ads from {platform} for {country_name}"
-        )
+        print(f"📝 Logged collection run: {ads_collected} ads from {platform} for {country_name}")
 
-    def save_exchange_rates(
-        self, rates: List[Dict[str, Any]], collection_id: str = None
-    ):
+    def save_exchange_rates(self, rates: List[Dict[str, Any]], collection_id: str = None):
         """
         Save exchange rate data to CSV.
 
@@ -425,16 +421,12 @@ class CSVDataManager:
                 if not buy_ads.empty and not sell_ads.empty
                 else 0,
                 "total_liquidity": group["available_amount"].sum(),
-                "avg_premium": group["premium_pct"].mean()
-                if "premium_pct" in group.columns
-                else 0,
+                "avg_premium": group["premium_pct"].mean() if "premium_pct" in group.columns else 0,
             }
             summary_data.append(summary)
 
         # Save summary
-        summary_file = (
-            self.processed_dir / "daily_summaries" / f"summary_{date_str}.csv"
-        )
+        summary_file = self.processed_dir / "daily_summaries" / f"summary_{date_str}.csv"
         summary_headers = list(summary_data[0].keys()) if summary_data else []
 
         self._write_csv(summary_file, summary_data, summary_headers)

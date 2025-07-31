@@ -210,9 +210,7 @@ class Phase3DataCoordinator:
         crisis_analysis = []
 
         for crisis in self.crisis_events:
-            print(
-                f"\n📊 Analyzing: {crisis['event']} ({crisis['country']}, {crisis['date']})"
-            )
+            print(f"\n📊 Analyzing: {crisis['event']} ({crisis['country']}, {crisis['date']})")
 
             try:
                 crisis_date = pd.to_datetime(crisis["date"])
@@ -227,8 +225,7 @@ class Phase3DataCoordinator:
 
                     # Filter data to crisis window
                     window_data = btc_data[
-                        (btc_data.index >= start_window)
-                        & (btc_data.index <= end_window)
+                        (btc_data.index >= start_window) & (btc_data.index <= end_window)
                     ]
 
                     if len(window_data) > 10:  # Ensure sufficient data
@@ -245,9 +242,7 @@ class Phase3DataCoordinator:
                             pre_vol = pre_crisis["Close"].std()
                             post_vol = post_crisis["Close"].std()
                             vol_change = (
-                                ((post_vol - pre_vol) / pre_vol) * 100
-                                if pre_vol > 0
-                                else 0
+                                ((post_vol - pre_vol) / pre_vol) * 100 if pre_vol > 0 else 0
                             )
 
                             crisis_result = {
@@ -377,9 +372,7 @@ class Phase3DataCoordinator:
                         "utils",
                         "country_profiles.py",
                     )
-                    spec = importlib.util.spec_from_file_location(
-                        "country_profiles", profiles_path
-                    )
+                    spec = importlib.util.spec_from_file_location("country_profiles", profiles_path)
                     profiles_module = importlib.util.module_from_spec(spec)
                     spec.loader.exec_module(profiles_module)
                     get_country_info = profiles_module.get_country_info
@@ -390,22 +383,18 @@ class Phase3DataCoordinator:
                         fiat = country_info["fiat_currency"]
 
                         # Collect USDT sell orders (people selling crypto for fiat)
-                        sell_ads = scraper.get_ads(
-                            asset="USDT", fiat=fiat, trade_type="SELL"
-                        )
+                        sell_ads = scraper.get_ads(asset="USDT", fiat=fiat, trade_type="SELL")
 
                         if sell_ads:
                             # Calculate current premium
-                            avg_price = sum(
-                                float(ad.get("price", 0)) for ad in sell_ads
-                            ) / len(sell_ads)
+                            avg_price = sum(float(ad.get("price", 0)) for ad in sell_ads) / len(
+                                sell_ads
+                            )
                             official_rate = current_rates.get(fiat, 1.0)
 
                             # Premium calculation (how much above official rate)
                             expected_price = 1.0 * official_rate  # USDT should be ~$1
-                            premium_pct = (
-                                (avg_price - expected_price) / expected_price
-                            ) * 100
+                            premium_pct = ((avg_price - expected_price) / expected_price) * 100
 
                             result = {
                                 "country": country,
@@ -433,9 +422,7 @@ class Phase3DataCoordinator:
             if validation_results:
                 # Save validation data
                 df = pd.DataFrame(validation_results)
-                filepath = os.path.join(
-                    self.data_dir, "raw", f"p2p_validation_{self.today}.csv"
-                )
+                filepath = os.path.join(self.data_dir, "raw", f"p2p_validation_{self.today}.csv")
                 df.to_csv(filepath, index=False)
 
                 print("\n✅ Current validation data collection complete")
@@ -449,9 +436,7 @@ class Phase3DataCoordinator:
 
         return None
 
-    def generate_research_summary(
-        self, historical_data, crisis_analysis, validation_data
-    ):
+    def generate_research_summary(self, historical_data, crisis_analysis, validation_data):
         """
         Step 4: Generate comprehensive research summary.
 
@@ -464,19 +449,13 @@ class Phase3DataCoordinator:
             "collection_date": self.today,
             "historical_data_sources": len(historical_data) if historical_data else 0,
             "crisis_events_analyzed": len(crisis_analysis) if crisis_analysis else 0,
-            "current_countries_validated": len(validation_data)
-            if validation_data
-            else 0,
+            "current_countries_validated": len(validation_data) if validation_data else 0,
         }
 
         print("\n📊 RESEARCH CAPABILITY SUMMARY:")
-        print(
-            f"   Historical crypto data: {summary['historical_data_sources']} sources"
-        )
+        print(f"   Historical crypto data: {summary['historical_data_sources']} sources")
         print(f"   Crisis events analyzed: {summary['crisis_events_analyzed']} events")
-        print(
-            f"   Current validation data: {summary['current_countries_validated']} countries"
-        )
+        print(f"   Current validation data: {summary['current_countries_validated']} countries")
 
         if crisis_analysis:
             # Calculate key research metrics
@@ -498,9 +477,7 @@ class Phase3DataCoordinator:
         if validation_data:
             # Current crisis indicators
             df_val = pd.DataFrame(validation_data)
-            high_premium = df_val[
-                df_val["premium_pct"] > 10
-            ]  # >10% premium indicates stress
+            high_premium = df_val[df_val["premium_pct"] > 10]  # >10% premium indicates stress
 
             summary["current_crisis_indicators"] = len(high_premium)
             print(f"   Current crisis indicators (>10% premium): {len(high_premium)}")
@@ -508,9 +485,7 @@ class Phase3DataCoordinator:
             if len(high_premium) > 0:
                 print("\n⚠️  CURRENT CRISIS SIGNALS:")
                 for _, country in high_premium.iterrows():
-                    print(
-                        f"   {country['country']}: {country['premium_pct']:+.1f}% premium"
-                    )
+                    print(f"   {country['country']}: {country['premium_pct']:+.1f}% premium")
 
         # Save research summary
         summary_path = os.path.join(
@@ -525,9 +500,7 @@ class Phase3DataCoordinator:
         print(f"💾 Summary saved to: {summary_path}")
 
         print("\n🎯 NEXT STEPS:")
-        print(
-            "   1. Review crisis correlation results in data/analysis/crisis_correlations/"
-        )
+        print("   1. Review crisis correlation results in data/analysis/crisis_correlations/")
         print("   2. Analyze current validation data in data/raw/")
         print("   3. Prepare academic publication using systematic findings")
         print("   4. Implement daily monitoring for ongoing research")
@@ -560,9 +533,7 @@ def main():
 
     # Step 4: Research summary
     # Generate research summary for documentation
-    coordinator.generate_research_summary(
-        historical_data, crisis_analysis, validation_data
-    )
+    coordinator.generate_research_summary(historical_data, crisis_analysis, validation_data)
 
     print("\n🎉 PHASE 3 COLLECTION COMPLETE!")
     print("📊 Systematic data collection with clear research objectives achieved")

@@ -29,9 +29,7 @@ from typing import Any, Dict, List
 import requests
 
 # Add project root to path for imports
-sys.path.append(
-    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-)
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from utils.country_profiles import get_profile_by_country_code
 from utils.csv_data_manager import CSVDataManager
@@ -106,9 +104,7 @@ class OKXPPScraper:
         # Try different endpoints to find working OKX API
         for i, base_url in enumerate(self.base_urls):
             try:
-                print(
-                    f"    🔍 Trying OKX endpoint {i + 1}/4: {base_url.split('/')[-1]}..."
-                )
+                print(f"    🔍 Trying OKX endpoint {i + 1}/4: {base_url.split('/')[-1]}...")
                 response = self.session.get(base_url, params=params, timeout=15)
 
                 if response.status_code == 200:
@@ -131,9 +127,7 @@ class OKXPPScraper:
         print("    ⚠️  All OKX endpoints failed")
         return {}
 
-    def standardize_ad(
-        self, ad_data: Dict, country_code: str, trade_type: str
-    ) -> Dict[str, Any]:
+    def standardize_ad(self, ad_data: Dict, country_code: str, trade_type: str) -> Dict[str, Any]:
         """
         Convert OKX API response to standardized format.
 
@@ -243,9 +237,7 @@ class OKXPPScraper:
 
             # Save to CSV if requested
             if save_to_csv and all_ads:
-                self.csv_manager.save_raw_ads(
-                    all_ads, "okx", country_code, collection_id
-                )
+                self.csv_manager.save_raw_ads(all_ads, "okx", country_code, collection_id)
 
                 # Log the collection run
                 self.csv_manager.log_collection_run(
@@ -294,9 +286,7 @@ class OKXPPScraper:
         if not end_date:
             end_date = datetime.now().strftime("%Y-%m-%d")
 
-        print(
-            f"🕐 Attempting historical collection for {country_code}: {start_date} to {end_date}"
-        )
+        print(f"🕐 Attempting historical collection for {country_code}: {start_date} to {end_date}")
         print("⚠️  Note: OKX historical data may be limited via public API")
 
         # For now, collect current data as baseline
@@ -325,9 +315,7 @@ def main():
     print("\n🔍 Testing OKX support for major currencies...")
     for currency, region in test_currencies:
         print(f"\n📊 Testing {currency} ({region})...")
-        response = scraper.get_ads(
-            crypto_currency="USDT", fiat_currency=currency, side="sell"
-        )
+        response = scraper.get_ads(crypto_currency="USDT", fiat_currency=currency, side="sell")
 
         if response and response.get("data"):
             ads = response.get("data", {}).get("orders", [])

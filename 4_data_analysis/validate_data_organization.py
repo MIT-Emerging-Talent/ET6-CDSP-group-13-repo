@@ -67,9 +67,7 @@ def validate_data_organization():
 
     # 1. Premium calculations
     premium_folder = base_dir / "processed/premium_calculations"
-    premium_files = (
-        list(premium_folder.glob("*.csv")) if premium_folder.exists() else []
-    )
+    premium_files = list(premium_folder.glob("*.csv")) if premium_folder.exists() else []
     script_validations.append(
         {
             "script": "calculate_premiums.py",
@@ -132,9 +130,7 @@ def validate_data_organization():
 
     # 6. Country aggregates
     country_folder = base_dir / "processed/country_aggregates"
-    country_files = (
-        list(country_folder.glob("*.csv")) if country_folder.exists() else []
-    )
+    country_files = list(country_folder.glob("*.csv")) if country_folder.exists() else []
     script_validations.append(
         {
             "script": "comprehensive_analyzer.py (country)",
@@ -162,18 +158,14 @@ def validate_data_organization():
     if missing_outputs:
         print("⚠️ Missing outputs detected:")
         for missing in missing_outputs:
-            print(
-                f"   • {missing['script']} should output to {missing['expected_folder']}"
-            )
+            print(f"   • {missing['script']} should output to {missing['expected_folder']}")
             issues_found.append(f"Run {missing['script']} to generate missing outputs")
 
     # Check for historical data utilization
     yahoo_folder = base_dir / "historical/yahoo_finance"
     yahoo_files = list(yahoo_folder.glob("*.csv")) if yahoo_folder.exists() else []
     if yahoo_files and not crisis_files:
-        issues_found.append(
-            "Historical data available but not used in crisis correlation analysis"
-        )
+        issues_found.append("Historical data available but not used in crisis correlation analysis")
 
     # Check for exchange rates utilization
     rates_folder = base_dir / "exchange_rates"

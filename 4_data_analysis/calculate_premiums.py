@@ -21,26 +21,16 @@ try:
     # Import data management utilities directly from files
     project_root = Path(__file__).parent.parent
     csv_manager_path = (
-        project_root
-        / "1_datasets"
-        / "crypto_data_collectors"
-        / "utils"
-        / "csv_data_manager.py"
+        project_root / "1_datasets" / "crypto_data_collectors" / "utils" / "csv_data_manager.py"
     )
     exchange_rates_path = (
-        project_root
-        / "1_datasets"
-        / "crypto_data_collectors"
-        / "utils"
-        / "exchange_rates.py"
+        project_root / "1_datasets" / "crypto_data_collectors" / "utils" / "exchange_rates.py"
     )
 
     if csv_manager_path.exists():
         import importlib.util
 
-        spec = importlib.util.spec_from_file_location(
-            "csv_data_manager", csv_manager_path
-        )
+        spec = importlib.util.spec_from_file_location("csv_data_manager", csv_manager_path)
         csv_module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(csv_module)
         CSVDataManager = csv_module.CSVDataManager
@@ -48,9 +38,7 @@ try:
     if exchange_rates_path.exists():
         import importlib.util
 
-        spec = importlib.util.spec_from_file_location(
-            "exchange_rates", exchange_rates_path
-        )
+        spec = importlib.util.spec_from_file_location("exchange_rates", exchange_rates_path)
         exchange_module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(exchange_module)
         ExchangeRateCollector = exchange_module.ExchangeRateCollector
@@ -86,11 +74,7 @@ def calculate_premiums():
 
     # Load current exchange rates - update path to match repository structure
     rates_file = (
-        project_root
-        / "1_datasets"
-        / "raw_datasets"
-        / "exchange_rates"
-        / "rates_2025-07-30.csv"
+        project_root / "1_datasets" / "raw_datasets" / "exchange_rates" / "rates_2025-07-30.csv"
     )
     if not rates_file.exists():
         # Try alternative location
@@ -131,9 +115,7 @@ def calculate_premiums():
 
         # Calculate premiums (assuming USDT = $1)
         premium_avg = rate_collector.calculate_premium(avg_price, official_rate, 1.0)
-        premium_median = rate_collector.calculate_premium(
-            median_price, official_rate, 1.0
-        )
+        premium_median = rate_collector.calculate_premium(median_price, official_rate, 1.0)
 
         # Market structure
         total_ads = len(country_data)
@@ -158,9 +140,7 @@ def calculate_premiums():
         print(f"  📊 Market: {total_ads} ads ({buy_ads} buy, {sell_ads} sell)")
         print(f"  💰 Avg Price: {avg_price:,.2f} {fiat}")
         print(f"  💱 Official Rate: {official_rate:,.2f} {fiat}/USD")
-        print(
-            f"  🔥 Premium: {premium_avg:+.1f}% (avg), {premium_median:+.1f}% (median)"
-        )
+        print(f"  🔥 Premium: {premium_avg:+.1f}% (avg), {premium_median:+.1f}% (median)")
 
         # Market interpretation
         if sell_ads > buy_ads * 3:

@@ -42,18 +42,14 @@ class CrisisVisualizationEngine:
         fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 8))
 
         # Handle different column names
-        premium_col = (
-            "premium_avg" if "premium_avg" in premium_data.columns else "premium_pct"
-        )
+        premium_col = "premium_avg" if "premium_avg" in premium_data.columns else "premium_pct"
 
         countries = premium_data["country_code"].tolist()
         premiums = premium_data[premium_col].tolist()
         colors = [self.country_colors.get(c, "#95A5A6") for c in countries]
 
         # Premium bar chart
-        bars = ax1.bar(
-            countries, premiums, color=colors, alpha=0.8, edgecolor="white", linewidth=2
-        )
+        bars = ax1.bar(countries, premiums, color=colors, alpha=0.8, edgecolor="white", linewidth=2)
         ax1.set_title(
             "💰 Cryptocurrency Premiums by Country",
             fontweight="bold",
@@ -100,9 +96,7 @@ class CrisisVisualizationEngine:
 
             ax2.set_xlabel("Market Activity (Number of Ads)", fontweight="bold")
             ax2.set_ylabel("Premium (%)", fontweight="bold")
-            ax2.set_title(
-                "📊 Market Activity vs Premium", fontweight="bold", fontsize=14, pad=20
-            )
+            ax2.set_title("📊 Market Activity vs Premium", fontweight="bold", fontsize=14, pad=20)
             ax2.grid(True, alpha=0.3)
 
         plt.tight_layout()
@@ -148,24 +142,18 @@ class CrisisVisualizationEngine:
 
         # Country volatility comparison
         country_volatility = (
-            df.groupby("country_code")["BTC_volatility"]
-            .mean()
-            .sort_values(ascending=False)
+            df.groupby("country_code")["BTC_volatility"].mean().sort_values(ascending=False)
         )
         bars = ax2.bar(
             country_volatility.index,
             country_volatility.values,
-            color=[
-                self.country_colors.get(c, "#95A5A6") for c in country_volatility.index
-            ],
+            color=[self.country_colors.get(c, "#95A5A6") for c in country_volatility.index],
             alpha=0.8,
             edgecolor="white",
             linewidth=2,
         )
 
-        ax2.set_title(
-            "🌍 Average Volatility by Country", fontweight="bold", fontsize=14, pad=20
-        )
+        ax2.set_title("🌍 Average Volatility by Country", fontweight="bold", fontsize=14, pad=20)
         ax2.set_ylabel("Average BTC Volatility (%)", fontweight="bold")
         ax2.grid(True, alpha=0.3)
 
@@ -298,11 +286,7 @@ class CrisisVisualizationEngine:
             )
 
             # Handle premium column names
-            premium_col = (
-                "premium_avg"
-                if "premium_avg" in premium_data.columns
-                else "premium_pct"
-            )
+            premium_col = "premium_avg" if "premium_avg" in premium_data.columns else "premium_pct"
             countries = premium_data["country_code"].tolist()
             premiums = premium_data[premium_col].tolist()
             colors = [self.country_colors.get(c, "#95A5A6") for c in countries]
@@ -361,9 +345,7 @@ class CrisisVisualizationEngine:
 
                 ax2.set_xlabel("Market Activity (Ads)", fontweight="bold")
                 ax2.set_ylabel("Premium (%)", fontweight="bold")
-                ax2.set_title(
-                    "📊 MARKET ACTIVITY vs PREMIUM", fontweight="bold", fontsize=14
-                )
+                ax2.set_title("📊 MARKET ACTIVITY vs PREMIUM", fontweight="bold", fontsize=14)
                 ax2.grid(True, alpha=0.3)
 
             # Bottom Left: Historical Correlation (if available)
@@ -371,9 +353,7 @@ class CrisisVisualizationEngine:
             if correlation_data is not None and not correlation_data.empty:
                 df = correlation_data.copy()
                 df["event_date"] = pd.to_datetime(df["event_date"])
-                colors_corr = [
-                    self.country_colors.get(c, "#95A5A6") for c in df["country_code"]
-                ]
+                colors_corr = [self.country_colors.get(c, "#95A5A6") for c in df["country_code"]]
 
                 ax3.scatter(
                     df["event_date"],
@@ -384,9 +364,7 @@ class CrisisVisualizationEngine:
                     edgecolors="white",
                     linewidths=1,
                 )
-                ax3.set_title(
-                    "📈 BITCOIN VOLATILITY TIMELINE", fontweight="bold", fontsize=14
-                )
+                ax3.set_title("📈 BITCOIN VOLATILITY TIMELINE", fontweight="bold", fontsize=14)
                 ax3.set_ylabel("BTC Volatility (%)", fontweight="bold")
                 ax3.grid(True, alpha=0.3)
 
@@ -448,11 +426,7 @@ class CrisisVisualizationEngine:
 
         # Premium analysis insights
         if not premium_data.empty:
-            premium_col = (
-                "premium_avg"
-                if "premium_avg" in premium_data.columns
-                else "premium_pct"
-            )
+            premium_col = "premium_avg" if "premium_avg" in premium_data.columns else "premium_pct"
 
             max_premium = premium_data.loc[premium_data[premium_col].idxmax()]
             min_premium = premium_data.loc[premium_data[premium_col].idxmin()]
@@ -483,9 +457,7 @@ class CrisisVisualizationEngine:
 
         # Crisis correlation insights
         if correlation_data is not None and not correlation_data.empty:
-            max_volatility = correlation_data.loc[
-                correlation_data["BTC_volatility"].idxmax()
-            ]
+            max_volatility = correlation_data.loc[correlation_data["BTC_volatility"].idxmax()]
             avg_volatility = correlation_data["BTC_volatility"].mean()
 
             insights.append("📈 CRISIS CORRELATION")
@@ -515,9 +487,7 @@ class CrisisVisualizationEngine:
 
         try:
             # Load premium data
-            premium_files = list(
-                (data_path / "analysis/reports").glob("premium_summary_*.csv")
-            )
+            premium_files = list((data_path / "analysis/reports").glob("premium_summary_*.csv"))
             if premium_files:
                 latest_premium = max(premium_files, key=lambda x: x.stat().st_mtime)
                 premium_data = pd.read_csv(latest_premium)
@@ -528,14 +498,10 @@ class CrisisVisualizationEngine:
 
             # Load correlation data
             correlation_files = list(
-                (data_path / "analysis/crisis_correlations").glob(
-                    "historical_correlation_*.csv"
-                )
+                (data_path / "analysis/crisis_correlations").glob("historical_correlation_*.csv")
             )
             if correlation_files:
-                latest_correlation = max(
-                    correlation_files, key=lambda x: x.stat().st_mtime
-                )
+                latest_correlation = max(correlation_files, key=lambda x: x.stat().st_mtime)
                 correlation_data = pd.read_csv(latest_correlation)
 
                 self.plot_historical_correlation(correlation_data)
@@ -546,9 +512,7 @@ class CrisisVisualizationEngine:
 
             # Load market structure data
             market_files = list(
-                (data_path / "processed/country_aggregates").glob(
-                    "market_structure_*.csv"
-                )
+                (data_path / "processed/country_aggregates").glob("market_structure_*.csv")
             )
             if market_files:
                 latest_market = max(market_files, key=lambda x: x.stat().st_mtime)
@@ -562,9 +526,7 @@ class CrisisVisualizationEngine:
 
             # Create comprehensive dashboard
             if not premium_data.empty:
-                self.plot_comprehensive_dashboard(
-                    premium_data, correlation_data, market_data
-                )
+                self.plot_comprehensive_dashboard(premium_data, correlation_data, market_data)
                 plots_created.append("Comprehensive Dashboard")
                 print("✅ Comprehensive dashboard created")
 

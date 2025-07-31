@@ -24,9 +24,7 @@ import pandas as pd
 import requests
 
 # Add project root to path
-sys.path.append(
-    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-)
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from utils.csv_data_manager import CSVDataManager
 
@@ -108,9 +106,7 @@ class CryptoCompareScraper:
 
         return results
 
-    def get_historical_daily(
-        self, crypto: str, fiat: str, days: int = 30
-    ) -> Dict[str, Any]:
+    def get_historical_daily(self, crypto: str, fiat: str, days: int = 30) -> Dict[str, Any]:
         """
         Get daily historical price data.
 
@@ -164,9 +160,7 @@ class CryptoCompareScraper:
             print(f"❌ Error fetching historical data: {e}")
             return {}
 
-    def get_exchange_prices(
-        self, crypto: str, fiat: str, exchange: str = None
-    ) -> Dict[str, Any]:
+    def get_exchange_prices(self, crypto: str, fiat: str, exchange: str = None) -> Dict[str, Any]:
         """
         Get prices from specific exchanges (useful for P2P platforms).
 
@@ -186,9 +180,7 @@ class CryptoCompareScraper:
         """
 
         # Skip exchange-specific data - requires premium API
-        print(
-            f"🔍 Skipping exchange-specific data for {crypto}/{fiat} (requires premium API)"
-        )
+        print(f"🔍 Skipping exchange-specific data for {crypto}/{fiat} (requires premium API)")
         return {}
 
     def collect_crisis_context_data(self) -> Dict[str, Any]:
@@ -256,9 +248,7 @@ class CryptoCompareScraper:
             results["exchange_data"] = {}
 
             print("✅ CryptoCompare data collection complete!")
-            print(
-                f"   💰 Current prices: {len(results['current_prices'])} cryptocurrencies"
-            )
+            print(f"   💰 Current prices: {len(results['current_prices'])} cryptocurrencies")
             print(f"   📊 Historical datasets: {len(results['historical_data'])} pairs")
             print(f"   🏪 Exchange data: {len(results['exchange_data'])} pairs")
 
@@ -291,9 +281,7 @@ class CryptoCompareScraper:
 
             if rows:
                 df = pd.DataFrame(rows)
-                filename = (
-                    f"cryptocompare_prices_{datetime.now().strftime('%Y-%m-%d')}.csv"
-                )
+                filename = f"cryptocompare_prices_{datetime.now().strftime('%Y-%m-%d')}.csv"
                 filepath = f"data/analysis/{filename}"
                 os.makedirs(os.path.dirname(filepath), exist_ok=True)
                 df.to_csv(filepath, index=False)
@@ -302,22 +290,15 @@ class CryptoCompareScraper:
         except Exception as e:
             print(f"❌ Error saving prices to CSV: {e}")
 
-    def _save_historical_data_to_csv(
-        self, historical_data: Dict[str, Any], crypto: str, fiat: str
-    ):
+    def _save_historical_data_to_csv(self, historical_data: Dict[str, Any], crypto: str, fiat: str):
         """Save historical data to proper historical folder."""
         try:
-            if (
-                "historical_data" in historical_data
-                and historical_data["historical_data"]
-            ):
+            if "historical_data" in historical_data and historical_data["historical_data"]:
                 rows = []
                 for daily_data in historical_data["historical_data"]:
                     rows.append(
                         {
-                            "date": datetime.fromtimestamp(daily_data["time"]).strftime(
-                                "%Y-%m-%d"
-                            ),
+                            "date": datetime.fromtimestamp(daily_data["time"]).strftime("%Y-%m-%d"),
                             "crypto": crypto,
                             "fiat": fiat,
                             "open": daily_data["open"],
@@ -359,9 +340,7 @@ def test_cryptocompare_scraper():
     # Test historical data
     print("\n📊 Testing historical data...")
     historical = scraper.get_historical_daily("BTC", "USD", 7)
-    print(
-        f"Historical data points: {historical.get('data_points', 0) if historical else 0}"
-    )
+    print(f"Historical data points: {historical.get('data_points', 0) if historical else 0}")
 
     # Test comprehensive collection
     print("\n🌍 Testing comprehensive data collection...")

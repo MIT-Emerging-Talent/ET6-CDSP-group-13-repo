@@ -104,9 +104,7 @@ class BinanceP2PScraper:
             print(f"Error fetching Binance P2P data: {e}")
             return {}
 
-    def standardize_ad(
-        self, ad_data: Dict, country_code: str, trade_type: str
-    ) -> Dict[str, Any]:
+    def standardize_ad(self, ad_data: Dict, country_code: str, trade_type: str) -> Dict[str, Any]:
         """
         Convert Binance API response to standardized format.
 
@@ -140,8 +138,7 @@ class BinanceP2PScraper:
             "trade_type": trade_type,
             "country_code": country_code,
             "payment_methods": [
-                method.get("tradeMethodName", "")
-                for method in adv.get("tradeMethods", [])
+                method.get("tradeMethodName", "") for method in adv.get("tradeMethods", [])
             ],
             "advertiser_name": advertiser.get("nickName", ""),
             "completion_rate": float(advertiser.get("monthFinishRate", 0)),
@@ -214,9 +211,7 @@ class BinanceP2PScraper:
 
             # Save to CSV if requested
             if save_to_csv and all_ads:
-                self.csv_manager.save_raw_ads(
-                    all_ads, "binance", country_code, collection_id
-                )
+                self.csv_manager.save_raw_ads(all_ads, "binance", country_code, collection_id)
 
                 # Log the collection run
                 self.csv_manager.log_collection_run(
@@ -313,18 +308,14 @@ class BinanceP2PScraper:
                     if ads and timestamp:
                         # Check if data looks different from current
                         sample_ad = ads[0].get("adv", {})
-                        print(
-                            f"    📊 Sample price: {sample_ad.get('price', 'N/A')} {fiat}"
-                        )
+                        print(f"    📊 Sample price: {sample_ad.get('price', 'N/A')} {fiat}")
                 else:
                     print("    ❌ No data returned")
 
                 time.sleep(1)  # Rate limiting
 
             print("⚠️  Binance P2P API appears to only provide current data")
-            print(
-                "🔄 For historical analysis, we'll need web scraping or archived data"
-            )
+            print("🔄 For historical analysis, we'll need web scraping or archived data")
             return False
 
         except Exception as e:

@@ -25,9 +25,7 @@ from typing import Any, Dict, List
 import requests
 
 # Add project root to path
-sys.path.append(
-    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-)
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from utils.csv_data_manager import CSVDataManager
 
@@ -144,19 +142,14 @@ class CoinGeckoScraper:
                 name = exchange.get("name", "").lower()
                 description = exchange.get("description", "").lower()
 
-                if any(
-                    keyword in name or keyword in description
-                    for keyword in p2p_keywords
-                ):
+                if any(keyword in name or keyword in description for keyword in p2p_keywords):
                     p2p_exchanges.append(
                         {
                             "id": exchange.get("id"),
                             "name": exchange.get("name"),
                             "country": exchange.get("country"),
                             "description": exchange.get("description"),
-                            "trade_volume_24h_btc": exchange.get(
-                                "trade_volume_24h_btc"
-                            ),
+                            "trade_volume_24h_btc": exchange.get("trade_volume_24h_btc"),
                             "trust_score": exchange.get("trust_score"),
                             "url": exchange.get("url"),
                             "timestamp": datetime.now().isoformat(),
@@ -271,9 +264,7 @@ class CoinGeckoScraper:
                 results["p2p_exchanges"] = exchanges
 
                 # Save exchange data
-                filename = (
-                    f"coingecko_p2p_exchanges_{datetime.now().strftime('%Y-%m-%d')}.csv"
-                )
+                filename = f"coingecko_p2p_exchanges_{datetime.now().strftime('%Y-%m-%d')}.csv"
                 self._save_exchanges_to_csv(exchanges, filename)
 
             time.sleep(self.rate_limit_delay)
@@ -290,9 +281,7 @@ class CoinGeckoScraper:
             print("✅ CoinGecko data collection complete!")
             print(f"   💰 Current prices: {len(results['current_prices'])} datasets")
             print(f"   🏪 P2P exchanges: {len(results['p2p_exchanges'])} found")
-            print(
-                f"   📊 Historical data: {len(results['historical_data'])} cryptocurrencies"
-            )
+            print(f"   📊 Historical data: {len(results['historical_data'])} cryptocurrencies")
 
             return results
 

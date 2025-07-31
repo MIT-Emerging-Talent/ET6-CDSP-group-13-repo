@@ -32,9 +32,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # Add project root to path for imports
-sys.path.append(
-    os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-)
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
 
 from utils.country_profiles import get_profile_by_country_code
 from utils.csv_data_manager import CSVDataManager
@@ -62,9 +60,7 @@ class PaxfulHistoricalScraper:
         )
         self.csv_manager = CSVDataManager()
 
-    def get_wayback_snapshots(
-        self, url: str, start_date: str, end_date: str
-    ) -> List[str]:
+    def get_wayback_snapshots(self, url: str, start_date: str, end_date: str) -> List[str]:
         """
         Get available Wayback Machine snapshots for a URL in date range.
 
@@ -100,9 +96,7 @@ class PaxfulHistoricalScraper:
                 snapshots = []
                 for row in data[1:]:  # Skip header row
                     timestamp, original_url = row[1], row[2]
-                    snapshot_url = (
-                        f"https://web.archive.org/web/{timestamp}/{original_url}"
-                    )
+                    snapshot_url = f"https://web.archive.org/web/{timestamp}/{original_url}"
                     snapshots.append(snapshot_url)
                 return snapshots
 
@@ -111,9 +105,7 @@ class PaxfulHistoricalScraper:
 
         return []
 
-    def scrape_archived_offers(
-        self, snapshot_url: str, country_code: str
-    ) -> List[Dict[str, Any]]:
+    def scrape_archived_offers(self, snapshot_url: str, country_code: str) -> List[Dict[str, Any]]:
         """
         Scrape P2P offers from an archived Paxful page.
 
@@ -147,9 +139,7 @@ class PaxfulHistoricalScraper:
                 try:
                     data = json.loads(script.string)
                     if "offers" in data or "advertisements" in data:
-                        offers.extend(
-                            self._extract_offers_from_json(data, country_code)
-                        )
+                        offers.extend(self._extract_offers_from_json(data, country_code))
                 except Exception:
                     continue
 
@@ -172,9 +162,7 @@ class PaxfulHistoricalScraper:
             print(f"❌ Error scraping archived data: {e}")
             return []
 
-    def _extract_offers_from_json(
-        self, data: Dict, country_code: str
-    ) -> List[Dict[str, Any]]:
+    def _extract_offers_from_json(self, data: Dict, country_code: str) -> List[Dict[str, Any]]:
         """Extract offer data from JSON structures."""
         offers = []
 
@@ -201,21 +189,15 @@ class PaxfulHistoricalScraper:
                     "asset": offer.get("cryptocurrency", offer.get("crypto", "BTC")),
                     "fiat": offer.get("fiat_currency", offer.get("currency", "")),
                     "price": float(offer.get("price", offer.get("rate", 0))),
-                    "min_amount": float(
-                        offer.get("min_amount", offer.get("minimum", 0))
-                    ),
-                    "max_amount": float(
-                        offer.get("max_amount", offer.get("maximum", 0))
-                    ),
+                    "min_amount": float(offer.get("min_amount", offer.get("minimum", 0))),
+                    "max_amount": float(offer.get("max_amount", offer.get("maximum", 0))),
                     "available_amount": float(offer.get("available", 0)),
                     "trade_type": "BUY" if offer.get("type") == "buy" else "SELL",
                     "country_code": country_code,
                     "payment_methods": [offer.get("payment_method", "")],
                     "advertiser_name": offer.get("username", offer.get("trader", "")),
                     "completion_rate": float(offer.get("completion_rate", 0)),
-                    "order_count": int(
-                        offer.get("trades", offer.get("feedback_score", 0))
-                    ),
+                    "order_count": int(offer.get("trades", offer.get("feedback_score", 0))),
                     "ad_id": offer.get("id", offer.get("offer_id", "")),
                     "premium_pct": None,
                 }
@@ -258,9 +240,7 @@ class PaxfulHistoricalScraper:
             start_wayback = start_date.replace("-", "")
             end_wayback = end_date.replace("-", "")
 
-            print(
-                f"🔍 Searching for Paxful historical data: {profile['name']} ({fiat})"
-            )
+            print(f"🔍 Searching for Paxful historical data: {profile['name']} ({fiat})")
             print(f"📅 Date range: {start_date} to {end_date}")
 
             # Search for relevant Paxful URLs
@@ -281,9 +261,7 @@ class PaxfulHistoricalScraper:
                     print(f"📸 Found {len(snapshots)} snapshots")
 
                     # Sample a few snapshots to avoid overloading
-                    sample_snapshots = snapshots[
-                        :: max(1, len(snapshots) // 5)
-                    ]  # Take every 5th
+                    sample_snapshots = snapshots[:: max(1, len(snapshots) // 5)]  # Take every 5th
 
                     for snapshot in sample_snapshots:
                         offers = self.scrape_archived_offers(snapshot, country_code)
@@ -295,9 +273,7 @@ class PaxfulHistoricalScraper:
             if all_offers:
                 # Save historical data
                 collection_id = self.csv_manager.generate_collection_id()
-                self.csv_manager.save_raw_ads(
-                    all_offers, "paxful", country_code, collection_id
-                )
+                self.csv_manager.save_raw_ads(all_offers, "paxful", country_code, collection_id)
 
                 self.csv_manager.log_collection_run(
                     platform="paxful",

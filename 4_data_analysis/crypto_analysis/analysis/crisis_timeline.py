@@ -359,9 +359,7 @@ class CrisisTimelineManager:
         list
             Crisis events for the country, sorted by date
         """
-        country_events = [
-            e for e in self.crisis_events if e.country_code == country_code
-        ]
+        country_events = [e for e in self.crisis_events if e.country_code == country_code]
         return sorted(country_events, key=lambda x: x.date)
 
     def get_priority_events(self, min_priority: int = 4) -> List[CrisisEvent]:
@@ -482,9 +480,7 @@ class CrisisTimelineManager:
 
             # Save individual country timeline
             country_file = (
-                self.csv_manager.base_dir
-                / "analysis"
-                / f"crisis_timeline_{country_code}.csv"
+                self.csv_manager.base_dir / "analysis" / f"crisis_timeline_{country_code}.csv"
             )
 
             headers = [
@@ -499,9 +495,7 @@ class CrisisTimelineManager:
             ]
 
             self.csv_manager._write_csv(country_file, timeline_data, headers)
-            print(
-                f"📅 {country_code}: {len(timeline_data)} events saved to {country_file.name}"
-            )
+            print(f"📅 {country_code}: {len(timeline_data)} events saved to {country_file.name}")
 
     def print_summary(self):
         """
@@ -520,9 +514,7 @@ class CrisisTimelineManager:
             for event in country_events:
                 severity_stars = "⭐" * event.impact_severity
                 priority_emoji = "🔥" if event.data_collection_priority >= 4 else "📅"
-                print(
-                    f"  {priority_emoji} {event.date}: {event.title} {severity_stars}"
-                )
+                print(f"  {priority_emoji} {event.date}: {event.title} {severity_stars}")
 
         print(
             f"\n📊 TOTAL: {len(self.crisis_events)} crisis events across {len(countries)} countries"
@@ -530,9 +522,7 @@ class CrisisTimelineManager:
 
         # Priority summary
         high_priority = self.get_priority_events(4)
-        print(
-            f"🔥 HIGH PRIORITY: {len(high_priority)} events for immediate data collection"
-        )
+        print(f"🔥 HIGH PRIORITY: {len(high_priority)} events for immediate data collection")
 
 
 def main():
