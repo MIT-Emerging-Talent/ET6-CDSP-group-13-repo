@@ -12,109 +12,99 @@ This folder contains materials for the final project presentation.
 
 ## Presentation Script
 
-This presentation, prepared by **Team Data Mavericks**, is titled:  
-**“The Role of Cryptocurrency in Fostering Financial Inclusion in Crisis”**.  
+This presentation, prepared by **Team Data Mavericks**, is titled:
+**"The Role of Cryptocurrency in Fostering Financial Inclusion in Crisis".**
 
-It explores how systemic financial collapse impacts vulnerable populations and
-whether cryptocurrency can serve as a catalyst for **financial inclusion and
-economic resilience**.
+It explores how systemic financial collapse impacts vulnerable people and
+whether cryptocurrency can support **financial inclusion** and **resilience**.
 
-**Contact:** [thedatamavericks@gmail.com]
+**Contact:** <thedatamavericks@gmail.com>
 
 ---
 
 ### Introduction – The Reality We Face
 
-“When banks collapse overnight, where do people turn for financial survival?”  
+"When banks collapse overnight, where do people turn for survival?"
 
-- Financial systems in crisis-affected countries are failing.  
-- Millions are excluded from basic financial services.  
-- Populations turn to alternatives such as **cryptocurrency and stablecoins**.  
+- Financial systems in many crisis regions are failing.
+- Millions lack basic financial services.
+- People turn to alternatives such as **cryptocurrency** and **stablecoins**.
 
 ---
 
 ### Research Question
 
-**Can cryptocurrency act as a catalyst for financial inclusion and economic
-resilience in crisis-affected countries?**
+**Can cryptocurrency foster financial inclusion and economic resilience
+in crisis-affected countries?**
 
 ---
 
 ### Data & Methodology
 
-We analyzed multiple datasets and applied cross-correlation techniques:
+We analyzed several datasets and used cross-correlation methods:
 
-- **Active Wallet Count** – Adoption trends (2019–2024) in Lebanon, Sudan,
-  Nigeria, Afghanistan.  
-- **INFORM Crisis Severity Index** – Humanitarian crisis tracking.  
-- **Global Findex (World Bank)** – 1,200+ indicators of financial inclusion.  
-- **USDT Trading Volume** – Stablecoin demand analysis via Python API.  
-- **Crypto Access Barriers** – Exchange accessibility mapping with scraping.  
+- **Active Wallet Count** – adoption trends (2019–2024) in Lebanon,
+  Sudan, Nigeria, and Afghanistan.
+- **INFORM Crisis Severity Index** – humanitarian crisis tracking.
+- **Global Findex (World Bank)** – 1,200+ inclusion indicators.
+- **USDT Trading Volume** – stablecoin demand via Python APIs.
+- **Crypto Access Barriers** – exchange access via web scraping.
 
-**Analytical approach:**  
-Cross-correlation between crisis severity, crypto adoption, and
-financial inclusion metrics.
+**Approach:** correlate crisis severity, crypto adoption, and inclusion metrics.
 
 ---
 
 ### Data Limitations & Challenges
 
-- Proxy measures: Active wallet counts rely on search interest.  
-- Temporal granularity: Crisis data is yearly, missing intra-year changes.  
-- Geographic scope: Some exchanges/countries excluded.  
-- Data availability: Limited access due to restrictions or paid APIs.  
+- Proxy measures: active wallets rely on search interest.
+- Temporal gaps: crisis data is annual; intra-year shifts are missed.
+- Geographic limits: some countries and exchanges are excluded.
+- Access issues: some sources are restricted or paid.
 
 ---
 
 ### Key Findings
 
-- **Stablecoin surge during crises**  
-  - 2021: COVID-19 pandemic → flight to digital safe havens.  
-  - 2024: Geopolitical tensions & banking instability → remittances via crypto.  
+- **Stablecoin usage rises in crises.**
+  - 2021: pandemic → flight to digital safe havens.
+  - 2024: tensions and bank stress → remittances via crypto.
+- **USDT spikes correlate with:**
+  - global uncertainty, bank stress, and cross-border payment needs.
+- **Country notes:**
+  - **Sudan:** USD scarcity → 50–200% BTC premiums.
+  - **Afghanistan:** post-sanctions isolation → crypto transfers.
+  - **Nigeria:** strong adoption despite restrictions → P2P hub.
+  - **Venezuela:** hyperinflation → daily use of crypto.
+  - **Lebanon:** banking crisis since 2019 → digital asset flight.
 
-- **USDT spikes correlate with**:  
-  - Global financial uncertainty  
-  - Banking system stress  
-  - Increased cross-border payment needs  
-
-- **Country-specific insights**:  
-  - **Sudan**: USD scarcity → 50–200% BTC premiums.  
-  - **Afghanistan**: Post-sanctions isolation → crypto as transfer method.  
-  - **Nigeria**: Adoption despite restrictions → P2P hub.  
-  - **Venezuela**: Hyperinflation → crypto mass adoption for daily use.  
-  - **Lebanon**: Banking crisis since 2019 → flight to digital assets.  
-
-**Bottom line:** Crypto adoption accelerates when traditional financial
-infrastructure fails.
+**Bottom line:** crypto adoption accelerates when banks fail.
 
 ---
 
 ### Target Audience
 
-1. **Policy Makers & Regulators** – Central banks, government agencies.  
-2. **International Organizations** – World Bank, IMF, UN, humanitarian NGOs.  
-3. **Financial Institutions** – Banks and fintechs targeting underbanked.  
+1. **Policymakers and regulators** – central banks and agencies.
+2. **International organizations** – World Bank, IMF, UN, NGOs.
+3. **Financial institutions** – banks and fintechs for the underbanked.
 
 ---
 
 ### Why This Matters
 
-- Provides insights for **designing financial infrastructure** in crisis
-  economies.  
-- Validates crypto and stablecoins as **crisis-resistant alternatives**.  
-- Supports policies that expand **financial inclusion** in fragile contexts.  
+- Guides design of **resilient financial infrastructure** in crises.
+- Validates stablecoins as **crisis-resistant alternatives**.
+- Supports policies that expand **financial inclusion**.
 
 ---
 
 ### Closing
 
-Crypto is not merely speculative—it is a **financial lifeline** in times of
-systemic collapse.  
+Crypto is not only speculative. It can be a **financial lifeline**.
 
-Our findings confirm:  
+Our findings suggest:
 
-- High premiums = capital controls or systemic failures.  
-- Large trading volumes = institutional banking failure.  
-- Volatility spikes = political and economic events.  
+- High premiums → capital controls or system failure.
+- Large volumes → weak institutional banking.
+- Volatility spikes → political and economic shocks.
 
-**Together, we can make financial systems more inclusive and resilient.**
+**Together, we can make finance more inclusive and resilient.**
