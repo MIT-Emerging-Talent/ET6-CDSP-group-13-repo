@@ -18,7 +18,7 @@ It explores how systemic financial collapse impacts vulnerable populations and
 whether cryptocurrency can serve as a catalyst for **financial inclusion and
 economic resilience**.
 
-**Contact:** [team-email@example.com]
+**Contact:** [thedatamavericks@gmail.com]
 
 ---
 
