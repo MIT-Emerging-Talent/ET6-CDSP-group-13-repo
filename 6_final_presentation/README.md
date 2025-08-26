@@ -3,9 +3,8 @@
 This folder contains materials for the final project presentation.
 
 - [Final Presentation Slides (Google Slides)](
-  <https://docs.google.com/presentation/d/>
-  13QxwKVMtAxZEESxbTs_IyIX-HTS3IGsc/edit?usp=sharing&
-  ouid=116880199605594446930&rtpof=true&sd=true)
+  <https://docs.google.com/presentation/d/13QxwKVMtAxZEESxbTs_IyIX-HTS3IGsc/>
+  edit?usp=sharing&ouid=116880199605594446930&rtpof=true&sd=true)
 - Presentation script and notes
 
 ---
@@ -50,7 +49,8 @@ We analyzed several datasets and used cross-correlation methods:
 - **USDT Trading Volume** – stablecoin demand via Python APIs.
 - **Crypto Access Barriers** – exchange access via web scraping.
 
-**Approach:** correlate crisis severity, crypto adoption, and inclusion metrics.
+**Approach:** correlate crisis severity, crypto adoption, and
+financial inclusion metrics.
 
 ---
 
@@ -83,17 +83,17 @@ We analyzed several datasets and used cross-correlation methods:
 
 ### Target Audience
 
-1. **Policymakers and regulators** – central banks and agencies.
-2. **International organizations** – World Bank, IMF, UN, NGOs.
-3. **Financial institutions** – banks and fintechs for the underbanked.
+1. **Policymakers and regulators** – central banks and agencies.  
+2. **International organizations** – World Bank, IMF, UN, NGOs.  
+3. **Financial institutions** – banks and fintechs for the underbanked.  
 
 ---
 
 ### Why This Matters
 
-- Guides design of **resilient financial infrastructure** in crises.
-- Validates stablecoins as **crisis-resistant alternatives**.
-- Supports policies that expand **financial inclusion**.
+- Guides design of **resilient financial infrastructure** in crises.  
+- Validates stablecoins as **crisis-resistant alternatives**.  
+- Supports policies that expand **financial inclusion**.  
 
 ---
 
@@ -103,8 +103,8 @@ Crypto is not only speculative. It can be a **financial lifeline**.
 
 Our findings suggest:
 
-- High premiums → capital controls or system failure.
-- Large volumes → weak institutional banking.
-- Volatility spikes → political and economic shocks.
+- High premiums → capital controls or system failure.  
+- Large volumes → weak institutional banking.  
+- Volatility spikes → political and economic shocks.  
 
 **Together, we can make finance more inclusive and resilient.**
