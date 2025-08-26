@@ -3,8 +3,9 @@
 This folder contains materials for the final project presentation.
 
 - [Final Presentation Slides (Google Slides)](
-  <https://docs.google.com/presentation/d/13QxwKVMtAxZEESxbTs_IyIX-HTS3IGsc/>
-  edit?usp=sharing&ouid=116880199605594446930&rtpof=true&sd=true)
+  <https://docs.google.com/presentation/d/>
+  13QxwKVMtAxZEESxbTs_IyIX-HTS3IGsc/edit?usp=sharing&
+  ouid=116880199605594446930&rtpof=true&sd=true)
 - Presentation script and notes
 
 ---
