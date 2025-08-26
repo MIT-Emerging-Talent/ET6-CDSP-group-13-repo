@@ -16,7 +16,7 @@ It explores how systemic financial collapse impacts vulnerable populations and
 whether cryptocurrency can serve as a catalyst for **financial inclusion and
 economic resilience**.
 
-**Contact:** [datamavericks@gmail.com]
+**Contact:** [team-email@example.com]
 
 ---
 
@@ -45,12 +45,11 @@ We analyzed multiple datasets and applied cross-correlation techniques:
   Nigeria, Afghanistan.  
 - **INFORM Crisis Severity Index** – Humanitarian crisis tracking.  
 - **Global Findex (World Bank)** – 1,200+ indicators of financial inclusion.  
-- **USDT Trading Volume** – Stablecoin demand analysis via Python API
-  integration.  
-- **Crypto Access Barriers** – Exchange accessibility mapping via web scraping.  
+- **USDT Trading Volume** – Stablecoin demand analysis via Python API.  
+- **Crypto Access Barriers** – Exchange accessibility mapping with scraping.  
 
 **Analytical approach:**  
-Cross-correlation analysis between crisis severity, crypto adoption, and
+Cross-correlation between crisis severity, crypto adoption, and
 financial inclusion metrics.
 
 ---
@@ -77,7 +76,7 @@ financial inclusion metrics.
 
 - **Country-specific insights**:  
   - **Sudan**: USD scarcity → 50–200% BTC premiums.  
-  - **Afghanistan**: Post-sanctions isolation → crypto as only transfer method.  
+  - **Afghanistan**: Post-sanctions isolation → crypto as transfer method.  
   - **Nigeria**: Adoption despite restrictions → P2P hub.  
   - **Venezuela**: Hyperinflation → crypto mass adoption for daily use.  
   - **Lebanon**: Banking crisis since 2019 → flight to digital assets.  
@@ -89,18 +88,16 @@ infrastructure fails.
 
 ### Target Audience
 
-1. **Policy Makers & Regulators** – Central banks, government agencies in
-   crisis regions.  
+1. **Policy Makers & Regulators** – Central banks, government agencies.  
 2. **International Organizations** – World Bank, IMF, UN, humanitarian NGOs.  
-3. **Financial Institutions** – Banks exploring digital alternatives, fintechs
-   targeting underbanked.  
+3. **Financial Institutions** – Banks and fintechs targeting underbanked.  
 
 ---
 
 ### Why This Matters
 
-- Provides evidence-based insights for **designing financial infrastructure**
-  solutions in crisis economies.  
+- Provides insights for **designing financial infrastructure** in crisis
+  economies.  
 - Validates crypto and stablecoins as **crisis-resistant alternatives**.  
 - Supports policies that expand **financial inclusion** in fragile contexts.  
 
@@ -113,7 +110,7 @@ systemic collapse.
 
 Our findings confirm:  
 
-- High premiums = capital controls / systemic failures.  
+- High premiums = capital controls or systemic failures.  
 - Large trading volumes = institutional banking failure.  
 - Volatility spikes = political and economic events.  
 
